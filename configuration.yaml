@@ -9,6 +9,8 @@ homeassistant:
   temperature_unit: C
   time_zone: Europe/Paris
 
+frontend:
+
 # System health report
 system_health:
 
