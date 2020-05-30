@@ -7,7 +7,7 @@ homeassistant:
   elevation: !secret home_elevation
   unit_system: metric
   temperature_unit: C
-  time_zone: Paris/Europe
+  time_zone: Europe/Paris
 
 # System health report
 system_health:
