@@ -34,19 +34,17 @@ netatmo:
 
 # Tuya plugs
 tuya:
-  username: !secret tuya_username
-  password: !secret tuya_password
-  country_code: 33
 
 # Google Chromecast
 cast:
   media_player:
     - host: !secret cast_host
 
+# Not working, need to update the component in ha/core (now using client/secret)
 # Enedis Linky
-linky:
-  - username: !secret linky_username
-    password: !secret linky_password
+# linky:
+#   - username: !secret linky_username
+#     password: !secret linky_password
 
 sensor:
   # Google Travel Time
