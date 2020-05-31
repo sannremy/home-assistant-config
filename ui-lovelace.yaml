@@ -7,3 +7,6 @@ views:
       - type: weather-forecast
         name: Weather
         entity: weather.home
+      - type: sensor
+        entity: sensor.netatmo_living_room_co2
+        name: Living Room CO2
