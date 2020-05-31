@@ -59,10 +59,6 @@ sensor:
   #     departure_time: now
   #     avoid: tolls
 
-  - platform: netatmo
-    entity_namespace: netatmo_home
-    scan_interval: 10
-
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
