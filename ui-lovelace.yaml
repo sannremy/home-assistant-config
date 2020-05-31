@@ -6,4 +6,4 @@ views:
     cards:
       - type: weather-forecast
         name: Weather
-        entity: weather.mimi_home
+        entity: weather.home
