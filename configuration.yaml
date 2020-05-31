@@ -50,7 +50,7 @@ sensor:
   - platform: google_travel_time
     api_key: !secret google_travel_time_api_key
     name: !secret google_travel_time_name_1
-    origin: zone.home
+    origin: !secret google_travel_time_origin_home
     destination: !secret google_travel_time_destination_1
     scan_interval: 15
     options:
