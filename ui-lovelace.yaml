@@ -1,0 +1,9 @@
+title: Mimi Home
+views:
+  - icon: mdi:home-assistant
+    id: home
+    title: Mimi Home
+    cards:
+      - type: weather-forecast
+        name: Weather
+        entity: weather.openweathermap
