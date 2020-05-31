@@ -1,8 +1,8 @@
-title: Mimi Home
+title: !secret home_name
 views:
   - icon: mdi:home-assistant
     id: home
-    title: Mimi Home
+    title: !secret home_name
     cards:
       - type: weather-forecast
         name: Weather
