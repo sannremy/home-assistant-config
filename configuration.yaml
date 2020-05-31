@@ -30,10 +30,10 @@ netatmo:
   client_secret: !secret netatmo_client_secret
 
 # Tuya plugs
-# tuya:
-#   username: !secret tuya_username
-#   password: !secret tuya_password
-#   country_code: FR
+tuya:
+  username: !secret tuya_username
+  password: !secret tuya_password
+  country_code: 33
 
 # Google Chromecast
 cast:
@@ -47,21 +47,21 @@ linky:
 
 sensor:
   # Google Travel Time
-  - platform: google_travel_time
-    entity_namespace: google_travel_time_destination_1
-    api_key: !secret google_travel_time_api_key
-    name: !secret google_travel_time_name_1
-    origin: !secret google_travel_time_origin_home
-    destination: !secret google_travel_time_destination_1
-    scan_interval: 15
-    options:
-      mode: driving
-      departure_time: now
-      avoid: tolls
+  # - platform: google_travel_time
+  #   entity_namespace: google_travel_time_destination_1
+  #   api_key: !secret google_travel_time_api_key
+  #   name: !secret google_travel_time_name_1
+  #   origin: !secret google_travel_time_origin_home
+  #   destination: !secret google_travel_time_destination_1
+  #   scan_interval: 15
+  #   options:
+  #     mode: driving
+  #     departure_time: now
+  #     avoid: tolls
 
   - platform: netatmo
     entity_namespace: netatmo_home
-    scan_interval: 15
+    scan_interval: 10
 
 group: !include groups.yaml
 automation: !include automations.yaml
