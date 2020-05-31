@@ -34,6 +34,9 @@ netatmo:
 
 # Tuya plugs
 tuya:
+  username: !secret tuya_username
+  password: !secret tuya_password
+  country_code: 33
 
 # Google Chromecast
 cast:
