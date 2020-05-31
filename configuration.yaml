@@ -9,6 +9,9 @@ homeassistant:
   temperature_unit: C
   time_zone: Europe/Paris
 
+# Integration, users, etc.
+config:
+
 # Frontend config (see ./ui-lovelace.yaml)
 frontend:
 lovelace:
