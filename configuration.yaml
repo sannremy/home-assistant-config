@@ -53,9 +53,9 @@ sensor:
     destination: !secret google_travel_time_destination_1
     scan_interval: 15
     options:
-      - mode: driving
-        departure_time: now
-        avoid: tolls
+      mode: driving
+      departure_time: now
+      avoid: tolls
 
 group: !include groups.yaml
 automation: !include automations.yaml
