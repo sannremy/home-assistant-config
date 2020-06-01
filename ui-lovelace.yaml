@@ -14,7 +14,7 @@ views:
       - type: custom:weather-card
         entity: weather.home
         name: Weather
-        icons: /local/components/weather-card/icons/
+        icons: /local/weather-card/icons/
         current: true
         details: false
         forecast: true
