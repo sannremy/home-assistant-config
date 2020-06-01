@@ -12,10 +12,16 @@ homeassistant:
 # Integration, users, etc.
 config:
 
+# Sunset and sunrise time
+sun:
+
 # Frontend config (see ./ui-lovelace.yaml)
 frontend:
 lovelace:
   mode: yaml
+  resources:
+    - url: /local/components/weather-card/weather-card.js
+      type: module
 
 # System health report
 system_health:

@@ -4,10 +4,19 @@ views:
     id: home
     title: !secret home_name
     cards:
-      - type: weather-forecast
-        name: Weather
-        entity: weather.home
+      # - type: weather-forecast
+      #   entity: weather.home
+      #   name: Weather
       - type: sensor
-        name: Living Room CO2
         entity: sensor.netatmo_living_room_co2
+        name: Living Room CO2
         graph: line
+      - type: custom:weather-card
+        entity: weather.home
+        name: Weather
+        icons: /local/components/weather-card/icons/
+        current: true
+        details: false
+        forecast: true
+        hourly_forecast: false
+        number_of_forecasts: 5
