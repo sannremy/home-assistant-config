@@ -9,6 +9,9 @@ homeassistant:
   temperature_unit: C
   time_zone: Europe/Paris
 
+http:
+  cors_allowed_origins: *
+
 # Integration, users, etc.
 config:
 
