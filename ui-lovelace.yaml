@@ -4,15 +4,12 @@ views:
     id: home
     title: !secret home_name
     cards:
-      # - type: weather-forecast
-      #   entity: weather.home
-      #   name: Weather
       - type: sensor
         entity: sensor.netatmo_living_room_co2
         name: Living Room CO2
         graph: line
       - type: custom:weather-card
-        entity: weather.home
+        entity:  weather.openweathermap
         name: Weather
         icons: /local/weather-card/icons/
         current: true
