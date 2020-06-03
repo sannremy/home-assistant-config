@@ -10,7 +10,8 @@ homeassistant:
   time_zone: Europe/Paris
 
 http:
-  cors_allowed_origins: *
+  cors_allowed_origins:
+    - "*"
 
 # Integration, users, etc.
 config:
