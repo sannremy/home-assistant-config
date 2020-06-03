@@ -9,11 +9,6 @@ homeassistant:
   temperature_unit: C
   time_zone: Europe/Paris
 
-http:
-  cors_allowed_origins:
-    - http://localhost:3000
-    - http://homeassistant.local:8123
-
 # Integration, users, etc.
 config:
 
@@ -30,7 +25,6 @@ lovelace:
 
 # System health report
 system_health:
-
 
 weather:
   - platform: openweathermap
