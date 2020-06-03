@@ -5,6 +5,8 @@
 !*.yaml
 !.gitignore
 !*.md
+!*.js
+!*.svg
 !*/
 
 # Ignore folders.
