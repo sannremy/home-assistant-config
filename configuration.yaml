@@ -11,7 +11,8 @@ homeassistant:
 
 http:
   cors_allowed_origins:
-    - "*"
+    - http://localhost:3000
+    - http://homeassistant.local:8123
 
 # Integration, users, etc.
 config:
