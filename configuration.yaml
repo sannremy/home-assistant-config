@@ -26,10 +26,13 @@ lovelace:
 # System health report
 system_health:
 
+
+# Weather
+meteo_france:
+  - city: !secret weather_meteo_france_city
+
 weather:
-  - platform: openweathermap
-    api_key: !secret weather_openweathermap_api_key
-    mode: freedaily
+  - platform: meteo_france
 
 # Philips Hue
 hue:
