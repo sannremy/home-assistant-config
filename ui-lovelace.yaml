@@ -9,7 +9,7 @@ views:
         name: Living Room CO2
         graph: line
       - type: custom:weather-card
-        entity:  weather.openweathermap
+        entity:  weather.meteofrance
         name: Weather
         icons: /local/weather-card/icons/
         current: true
