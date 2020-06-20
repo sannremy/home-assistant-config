@@ -65,17 +65,36 @@ cast:
 
 sensor:
   # Google Travel Time
-  # - platform: google_travel_time
-  #   entity_namespace: google_travel_time_destination_1
-  #   api_key: !secret google_travel_time_api_key
-  #   name: !secret google_travel_time_name_1
-  #   origin: !secret google_travel_time_origin_home
-  #   destination: !secret google_travel_time_destination_1
-  #   scan_interval: 15
-  #   options:
-  #     mode: driving
-  #     departure_time: now
-  #     avoid: tolls
+  - platform: google_travel_time
+    api_key: !secret google_travel_time_api_key
+    name: !secret google_travel_time_name_1
+    origin: !secret google_travel_time_origin_home
+    destination: !secret google_travel_time_destination_1
+    scan_interval: 15
+    options:
+      mode: driving
+      departure_time: now
+      avoid: tolls
+  - platform: google_travel_time
+    api_key: !secret google_travel_time_api_key
+    name: !secret google_travel_time_name_2
+    origin: !secret google_travel_time_origin_home
+    destination: !secret google_travel_time_destination_2
+    scan_interval: 15
+    options:
+      mode: driving
+      departure_time: now
+      avoid: tolls
+  - platform: google_travel_time
+    api_key: !secret google_travel_time_api_key
+    name: !secret google_travel_time_name_3
+    origin: !secret google_travel_time_origin_home
+    destination: !secret google_travel_time_destination_3
+    scan_interval: 15
+    options:
+      mode: driving
+      departure_time: now
+      avoid: tolls
 
 group: !include groups.yaml
 automation: !include automations.yaml
