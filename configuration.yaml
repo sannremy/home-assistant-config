@@ -67,7 +67,7 @@ sensor:
   # Google Travel Time
   - platform: google_travel_time
     api_key: !secret google_travel_time_api_key
-    entity_namespace: google_travel_time_destination_1
+    name: google_travel_time_destination_1
     origin: !secret google_travel_time_origin_home
     destination: !secret google_travel_time_destination_1
     scan_interval: 15
@@ -77,7 +77,7 @@ sensor:
       avoid: tolls
   - platform: google_travel_time
     api_key: !secret google_travel_time_api_key
-    entity_namespace: google_travel_time_destination_2
+    name: google_travel_time_destination_2
     origin: !secret google_travel_time_origin_home
     destination: !secret google_travel_time_destination_2
     scan_interval: 15
@@ -87,7 +87,7 @@ sensor:
       avoid: tolls
   - platform: google_travel_time
     api_key: !secret google_travel_time_api_key
-    entity_namespace: google_travel_time_destination_3
+    name: google_travel_time_destination_3
     origin: !secret google_travel_time_origin_home
     destination: !secret google_travel_time_destination_3
     scan_interval: 15
