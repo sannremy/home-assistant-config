@@ -85,16 +85,6 @@ sensor:
       mode: driving
       departure_time: now
       avoid: tolls
-  - platform: google_travel_time
-    api_key: !secret google_travel_time_api_key
-    name: google_travel_time_destination_3
-    origin: !secret google_travel_time_origin_home
-    destination: !secret google_travel_time_destination_3
-    scan_interval: 15
-    options:
-      mode: driving
-      departure_time: now
-      avoid: tolls
 
 group: !include groups.yaml
 automation: !include automations.yaml
