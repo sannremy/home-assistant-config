@@ -70,7 +70,7 @@ sensor:
     name: google_travel_time_destination_1
     origin: !secret google_travel_time_origin_home
     destination: !secret google_travel_time_destination_1
-    scan_interval: 15
+    scan_interval: 900
     options:
       mode: driving
       departure_time: now
@@ -80,7 +80,7 @@ sensor:
     name: google_travel_time_destination_2
     origin: !secret google_travel_time_origin_home
     destination: !secret google_travel_time_destination_2
-    scan_interval: 15
+    scan_interval: 900
     options:
       mode: driving
       departure_time: now
