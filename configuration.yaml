@@ -89,6 +89,9 @@ sensor:
     name: rest_vigicrue_hydro_observation
     resource: !secret rest_vigicrue_hydro_observation_url
     method: !secret rest_vigicrue_hydro_observation_method
+    value_template: '{{value_json.Serie.ObssHydro[0][1]}}'
+    json_attributes:
+      - ObssHydro
     scan_interval: 300
   - platform: rest
     name: rest_transilien_search
@@ -97,6 +100,9 @@ sensor:
     payload: !secret rest_transilien_search_payload
     headers:
       Content-Type: application/json
+    value_template: '{{value_json.nextTrainsList[0].departureTime}}'
+    json_attributes:
+      - nextTrainsList
     scan_interval: 60
 
 group: !include groups.yaml
