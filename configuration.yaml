@@ -85,6 +85,19 @@ sensor:
       mode: driving
       departure_time: now
       avoid: tolls
+  - platform: rest
+    name: rest_vigicrue_hydro_observation
+    resource: !secret restful_vigicrue_hydro_observation_url
+    method: !secret rest_vigicrue_hydro_observation_method
+    scan_interval: 300
+  - platform: rest
+    name: rest_transilien_search
+    resource: !secret rest_transilien_search_url
+    method: !secret rest_transilien_search_method
+    payload: !secret rest_transilien_search_payload
+    headers:
+      Content-Type: application/json
+    scan_interval: 60
 
 group: !include groups.yaml
 automation: !include automations.yaml
