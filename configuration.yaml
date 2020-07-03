@@ -87,7 +87,7 @@ sensor:
       avoid: tolls
   - platform: rest
     name: rest_vigicrue_hydro_observation
-    resource: !secret restful_vigicrue_hydro_observation_url
+    resource: !secret rest_vigicrue_hydro_observation_url
     method: !secret rest_vigicrue_hydro_observation_method
     scan_interval: 300
   - platform: rest
