@@ -89,9 +89,9 @@ sensor:
     name: rest_vigicrue_hydro_observation
     resource: !secret rest_vigicrue_hydro_observation_url
     method: !secret rest_vigicrue_hydro_observation_method
-    value_template: '{{value_json.Serie.ObssHydro[0][1]}}'
+    value_template: '{{value_json.Serie.ObssHydro[0].ResObsHydro}}'
     json_attributes:
-      - ObssHydro
+      - Serie
     scan_interval: 300
   - platform: rest
     name: rest_transilien_search
