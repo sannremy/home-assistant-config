@@ -1,19 +1,1 @@
 title: !secret home_name
-views:
-  - icon: mdi:home-assistant
-    id: home
-    title: !secret home_name
-    cards:
-      - type: sensor
-        entity: sensor.netatmo_living_room_co2
-        name: Living Room CO2
-        graph: line
-      - type: custom:weather-card
-        entity:  weather.meteofrance
-        name: Weather
-        icons: /local/weather-card/icons/
-        current: true
-        details: false
-        forecast: true
-        hourly_forecast: false
-        number_of_forecasts: 5
