@@ -60,6 +60,15 @@ cast:
 #   - username: !secret linky_username
 #     password: !secret linky_password
 
+# Wait for implementation on RPi + sniffing codes (https://github.com/ninjablocks/433Utils)
+# switch:
+#   - platform: rpi_rf
+#     gpio: 0 # todo
+#     switches:
+#       awning:
+#         code_on: 11111 # todo
+#         code_off: 00000 # todo
+
 sensor:
   # Google Travel Time
   - platform: google_travel_time
