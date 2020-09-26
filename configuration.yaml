@@ -23,13 +23,9 @@ lovelace:
 # System health report
 system_health:
 
-
 # Weather
 meteo_france:
   - city: !secret weather_meteo_france_city
-
-weather:
-  - platform: meteo_france
 
 # Philips Hue
 hue:
@@ -43,7 +39,7 @@ netatmo:
   client_id: !secret netatmo_client_id
   client_secret: !secret netatmo_client_secret
 
-# Tuya plugs
+# Tuya plugs (deprecated)
 tuya:
   username: !secret tuya_username
   password: !secret tuya_password
@@ -51,8 +47,6 @@ tuya:
 
 # Google Chromecast
 cast:
-  media_player:
-    - host: !secret cast_host
 
 # Not working, need to update the component in ha/core (now using client/secret)
 # Enedis Linky
