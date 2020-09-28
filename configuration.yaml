@@ -99,6 +99,18 @@ sensor:
       - nextTrainsList
     scan_interval: 60
 
+timer:
+  laundry1:
+    duration: '00:01:30'
+  laundry2:
+    duration: '00:02:00'
+  dryer1:
+    duration: '00:00:45'
+  dryer2:
+    duration: '00:01:10'
+  dryer3:
+    duration: '00:03:00'
+
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
