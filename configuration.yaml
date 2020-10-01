@@ -42,12 +42,6 @@ netatmo:
 # Google Chromecast
 cast:
 
-# Not working, need to update the component in ha/core (now using client/secret)
-# Enedis Linky
-# linky:
-#   - username: !secret linky_username
-#     password: !secret linky_password
-
 # Wait for implementation on RPi + sniffing codes (https://github.com/ninjablocks/433Utils)
 # switch:
 #   - platform: rpi_rf
@@ -58,7 +52,7 @@ cast:
 #         code_off: 00000 # todo
 
 sensor:
-  # Google Travel Time
+  # Google Travel Time (trip durations)
   - platform: google_travel_time
     api_key: !secret google_travel_time_api_key
     name: google_travel_time_destination_1
@@ -79,6 +73,7 @@ sensor:
       mode: driving
       departure_time: now
       avoid: tolls
+  # Vigicrue (flood monitoring)
   - platform: rest
     name: rest_vigicrue_hydro_observation
     resource: !secret rest_vigicrue_hydro_observation_url
@@ -87,6 +82,7 @@ sensor:
     json_attributes:
       - Serie
     scan_interval: 300
+  # Transilien (trains)
   - platform: rest
     name: rest_transilien_search
     resource: !secret rest_transilien_search_url
@@ -98,6 +94,12 @@ sensor:
     json_attributes:
       - nextTrainsList
     scan_interval: 60
+  # Suez (water consumption)
+  - platform: suez_water
+    name: suez_water_consumption
+    username: !secret suez_water_consumption_username
+    password: !secret suez_water_consumption_password
+    counter_id: !secret suez_water_consumption_counter_id
 
 timer:
   laundry1:
