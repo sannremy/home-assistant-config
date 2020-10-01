@@ -96,7 +96,6 @@ sensor:
     scan_interval: 60
   # Suez (water consumption)
   - platform: suez_water
-    name: suez_water_consumption
     username: !secret suez_water_consumption_username
     password: !secret suez_water_consumption_password
     counter_id: !secret suez_water_consumption_counter_id
