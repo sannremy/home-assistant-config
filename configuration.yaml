@@ -47,7 +47,10 @@ cast:
 #   - platform: rpi_rf
 #     gpio: 0 # todo
 #     switches:
-#       awning:
+#       outlet_1:
+#         code_on: 11111 # todo
+#         code_off: 00000 # todo
+#       outlet_2:
 #         code_on: 11111 # todo
 #         code_off: 00000 # todo
 
