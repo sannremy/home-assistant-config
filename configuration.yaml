@@ -19,20 +19,13 @@ sun:
 frontend:
 lovelace:
   mode: yaml
-  resources:
-    - url: /local/weather-card/weather-card.js
-      type: module
 
 # System health report
 system_health:
 
-
 # Weather
 meteo_france:
   - city: !secret weather_meteo_france_city
-
-weather:
-  - platform: meteo_france
 
 # Philips Hue
 hue:
@@ -46,34 +39,23 @@ netatmo:
   client_id: !secret netatmo_client_id
   client_secret: !secret netatmo_client_secret
 
-# Tuya plugs
-tuya:
-  username: !secret tuya_username
-  password: !secret tuya_password
-  country_code: 33
-
 # Google Chromecast
 cast:
-  media_player:
-    - host: !secret cast_host
-
-# Not working, need to update the component in ha/core (now using client/secret)
-# Enedis Linky
-# linky:
-#   - username: !secret linky_username
-#     password: !secret linky_password
 
 # Wait for implementation on RPi + sniffing codes (https://github.com/ninjablocks/433Utils)
 # switch:
 #   - platform: rpi_rf
 #     gpio: 0 # todo
 #     switches:
-#       awning:
+#       outlet_1:
+#         code_on: 11111 # todo
+#         code_off: 00000 # todo
+#       outlet_2:
 #         code_on: 11111 # todo
 #         code_off: 00000 # todo
 
 sensor:
-  # Google Travel Time
+  # Google Travel Time (trip durations)
   - platform: google_travel_time
     api_key: !secret google_travel_time_api_key
     name: google_travel_time_destination_1
@@ -94,6 +76,7 @@ sensor:
       mode: driving
       departure_time: now
       avoid: tolls
+  # Vigicrue (flood monitoring)
   - platform: rest
     name: rest_vigicrue_hydro_observation
     resource: !secret rest_vigicrue_hydro_observation_url
@@ -102,6 +85,7 @@ sensor:
     json_attributes:
       - Serie
     scan_interval: 300
+  # Transilien (trains)
   - platform: rest
     name: rest_transilien_search
     resource: !secret rest_transilien_search_url
@@ -113,6 +97,23 @@ sensor:
     json_attributes:
       - nextTrainsList
     scan_interval: 60
+  # Suez (water consumption)
+  - platform: suez_water
+    username: !secret suez_water_consumption_username
+    password: !secret suez_water_consumption_password
+    counter_id: !secret suez_water_consumption_counter_id
+
+timer:
+  laundry1:
+    duration: '01:30:00'
+  laundry2:
+    duration: '02:00:00'
+  dryer1:
+    duration: '00:45:00'
+  dryer2:
+    duration: '01:10:00'
+  dryer3:
+    duration: '03:00:00'
 
 group: !include groups.yaml
 automation: !include automations.yaml
