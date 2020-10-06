@@ -21,7 +21,7 @@
     - service: homeassistant.update_entity
       entity_id: sensor.google_travel_time_destination_2
 - id: create_weekly_backup
-    alias: 'Backup - Create snapshot weekly'
+    alias: "Backup - Create snapshot weekly"
     initial_state: 'on'
     trigger:
       platform: time
