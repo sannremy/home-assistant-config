@@ -20,3 +20,17 @@
       entity_id: sensor.google_travel_time_destination_1
     - service: homeassistant.update_entity
       entity_id: sensor.google_travel_time_destination_2
+- id: create_weekly_backup
+    alias: 'Backup - Create snapshot weekly'
+    initial_state: 'on'
+    trigger:
+      platform: time
+      at: '04:00:00'
+    condition:
+      condition: time
+      weekday:
+        - mon
+    action:
+      service: hassio.snapshot_full
+      data_template:
+        name: Hassio - {{now().strftime('%y-%m-%d')}}
