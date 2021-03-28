@@ -66,16 +66,6 @@ sensor:
       mode: driving
       departure_time: now
       avoid: tolls
-  - platform: google_travel_time
-    api_key: !secret google_travel_time_api_key
-    name: google_travel_time_destination_2
-    origin: !secret google_travel_time_origin_home
-    destination: !secret google_travel_time_destination_2
-    scan_interval: 900
-    options:
-      mode: driving
-      departure_time: now
-      avoid: tolls
   # Vigicrue (flood monitoring)
   - platform: rest
     name: rest_vigicrue_hydro_observation
