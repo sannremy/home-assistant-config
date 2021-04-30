@@ -98,6 +98,7 @@ binary_sensor:
   - platform: command_line
     name: rasp_temperature
     command: 'cat /sys/class/thermal/thermal_zone0/temp'
+    value_template: '{{"%.2f" | format(value | int / 1000) | round}}'
     scan_interval: 900
 
 timer:
