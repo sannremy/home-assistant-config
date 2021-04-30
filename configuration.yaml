@@ -76,17 +76,17 @@ sensor:
       - Serie
     scan_interval: 300
   # Transilien (trains)
-  - platform: rest
-    name: rest_transilien_search
-    resource: !secret rest_transilien_search_url
-    method: !secret rest_transilien_search_method
-    payload: !secret rest_transilien_search_payload
-    headers:
-      Content-Type: application/json
-    value_template: '{{value_json.nextTrainsList[0].departureTime}}'
-    json_attributes:
-      - nextTrainsList
-    scan_interval: 60
+  # - platform: rest
+  #   name: rest_transilien_search
+  #   resource: !secret rest_transilien_search_url
+  #   method: !secret rest_transilien_search_method
+  #   payload: !secret rest_transilien_search_payload
+  #   headers:
+  #     Content-Type: application/json
+  #   value_template: '{{value_json.nextTrainsList[0].departureTime}}'
+  #   json_attributes:
+  #     - nextTrainsList
+  #   scan_interval: 60
   # Suez (water consumption)
   - platform: suez_water
     username: !secret suez_water_consumption_username
