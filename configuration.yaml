@@ -94,9 +94,11 @@ sensor:
     counter_id: !secret suez_water_consumption_counter_id
 
 binary_sensor:
+  # Raspberry Pi CPU temperature
   - platform: command_line
     name: rasp_temperature
     command: 'cat /sys/class/thermal/thermal_zone0/temp'
+    scan_interval: 900
 
 timer:
   laundry1:
