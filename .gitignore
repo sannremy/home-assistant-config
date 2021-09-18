@@ -9,6 +9,7 @@
 !*.svg
 !*/
 !*/.gitkeep
+!shell/netatmo_ftp_clean_up.sh
 
 # Ignore folders.
 .storage
