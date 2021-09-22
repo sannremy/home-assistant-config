@@ -1,6 +1,6 @@
 #!/bin/bash
 
-folder="/media/netatmo/"
+folder="/share/netatmo/"
 # 20 Gb = 20,971,520 Kb
 max_size=20971520
 
