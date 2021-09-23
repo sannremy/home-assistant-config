@@ -30,10 +30,10 @@
       - mon
   action:
     - service: hassio.backup_partial
-      data_template:
+      data:
         name: Hassio - {{now().strftime('%y-%m-%d')}}
-        addons: core_ssh,core_check_config,core_git_pull,a0d7b954_ftp,7be23ff5_dropbox_sync
-        folders: homeassistant,addons/local,ssl
+        addons: core_ssh, core_check_config, core_git_pull, a0d7b954_ftp, 7be23ff5_dropbox_sync
+        folders: homeassistant, Local add-ons, ssl
     - service: hassio.addon_stdin
       data_template:
         addon: 7be23ff5_dropbox_sync
