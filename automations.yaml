@@ -28,6 +28,7 @@
     condition: time
     weekday:
       - mon
+      - fri
   action:
     - service: hassio.backup_partial
       data:
