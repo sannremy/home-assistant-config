@@ -111,9 +111,10 @@ timer:
   dryer3:
     duration: '03:00:00'
 
-# Shell commands for Netatmo FTP storage
+# Shell commands
 shell_command:
   netatmo_ftp_clean_up: bash /config/shell/netatmo_ftp_clean_up.sh
+  r7000_backup: bash /config/shell/r7000_backup.sh {{ credentials }}
 
 group: !include groups.yaml
 automation: !include automations.yaml

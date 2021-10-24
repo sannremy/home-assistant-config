@@ -56,3 +56,17 @@
     minutes: "00"
   action:
     - service: shell_command.netatmo_ftp_clean_up
+- id: r7000_backup
+  alias: "R7000 - Backup"
+  initial_state: 'on'
+  trigger:
+    platform: time
+    at: '05:00:00'
+  condition:
+    condition: time
+    weekday:
+      - mon
+  action:
+    - service: shell_command.r7000_backup
+      data:
+        credentials: !secret r7000_credentials

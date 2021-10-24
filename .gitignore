@@ -10,6 +10,7 @@
 !*/
 !*/.gitkeep
 !shell/netatmo_ftp_clean_up.sh
+!shell/r7000_backup.sh
 
 # Ignore folders.
 .storage
