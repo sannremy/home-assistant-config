@@ -70,3 +70,4 @@
     - service: shell_command.r7000_backup
       data:
         credentials: !secret r7000_credentials
+        router_ip: !secret r7000_router_ip
