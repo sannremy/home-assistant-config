@@ -8,6 +8,7 @@ homeassistant:
   unit_system: metric
   temperature_unit: C
   time_zone: Europe/Paris
+  country: FR
 
 # Integration, users, etc.
 config:
@@ -23,10 +24,6 @@ lovelace:
 # System health report
 system_health:
 
-# Weather
-meteo_france:
-  - city: !secret weather_meteo_france_city
-
 # Philips Hue
 hue:
   bridges:
@@ -38,9 +35,6 @@ hue:
 netatmo:
   client_id: !secret netatmo_client_id
   client_secret: !secret netatmo_client_secret
-
-# Google Chromecast
-cast:
 
 # Wait for implementation on RPi + sniffing codes (https://github.com/ninjablocks/433Utils)
 # switch:
