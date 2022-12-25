@@ -93,12 +93,12 @@ sensor:
     value_template: '{{value | multiply(0.001) | round}}'
     scan_interval: 900
 
-binary_sensor:
+device_tracker:
+  device_tracker:
+  - platform: bbox
   - platform: ping
-    host: !secret home_ip_addr
-    name: internet_ping
-    count: 2
-    scan_interval: 30
+    hosts:
+      internet_ping: !secret home_ip_addr
 
 timer:
   laundry1:
