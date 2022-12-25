@@ -94,7 +94,6 @@ sensor:
     scan_interval: 900
 
 device_tracker:
-  device_tracker:
   - platform: bbox
   - platform: ping
     hosts:
