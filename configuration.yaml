@@ -94,7 +94,6 @@ sensor:
     scan_interval: 900
 
 device_tracker:
-  - platform: bbox
   - platform: ping
     hosts:
       internet_ping: !secret home_ip_addr
