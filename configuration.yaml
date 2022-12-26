@@ -10,8 +10,9 @@ homeassistant:
   time_zone: Europe/Paris
   country: FR
 
-# Integration, users, etc.
+# Integration, users, history, etc.
 config:
+history:
 
 # Sunset and sunrise time
 sun:
