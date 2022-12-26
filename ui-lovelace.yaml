@@ -9,3 +9,14 @@ views:
         hours_to_show: 72
         entities:
           - binary_sensor.internet_connection
+      - type: statistics-graph
+        title: 'Water consumption'
+        chart_type: bar
+        period: day
+        days_to_show: 30
+        stat_types:
+          - state
+          - mean
+          - sum
+        entities:
+          - sensor.suez_water
