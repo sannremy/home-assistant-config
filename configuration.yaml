@@ -93,17 +93,12 @@ sensor:
     value_template: '{{value | multiply(0.001) | round}}'
     scan_interval: 900
 
-device_tracker:
-  - platform: ping
-    hosts:
-      internet_ping: !secret home_ip_addr
-
 binary_sensor:
   - platform: ping
-    host: 8.8.8.8
+    host: !secret home_ip_addr
     count: 2
-    scan_interval: 60
-    name: Internet_Connection
+    scan_interval: 10
+    name: internet_connection
 
 timer:
   laundry1:
