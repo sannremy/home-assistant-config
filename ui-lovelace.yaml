@@ -1,1 +1,11 @@
 title: !secret home_name
+
+views:
+  - title: !secret home_name
+    id: home_view
+    cards:
+      - type: history-graph
+        title: 'Internet connectivity'
+        hours_to_show: 72
+        entities:
+          - binary_sensor.internet_connection
