@@ -74,7 +74,8 @@ sensor:
     method: !secret rest_vigicrue_hydro_observation_method
     value_template: '{{value_json.Serie.ObssHydro[-1:].ResObsHydro}}'
     json_attributes:
-      - Serie
+      - Serie.CdStationHydro
+      - Serie.LbStationHydro
     scan_interval: 300
   # Transilien (trains)
   # - platform: rest
