@@ -20,3 +20,12 @@ views:
           - sum
         entities:
           - sensor.suez_water
+      - type: statistics-graph
+        title: 'Vigicrue'
+        chart_type: line
+        period: hour
+        days_to_show: 7
+        stat_types:
+          - state
+        entities:
+          - sensor.rest_vigicrue_hydro_observation
