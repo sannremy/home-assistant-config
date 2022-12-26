@@ -98,6 +98,13 @@ device_tracker:
     hosts:
       internet_ping: !secret home_ip_addr
 
+binary_sensor:
+  - platform: ping
+    host: 8.8.8.8
+    count: 2
+    scan_interval: 60
+    name: Internet_Connection
+
 timer:
   laundry1:
     duration: '01:30:00'
