@@ -6,35 +6,21 @@ views:
     cards:
       - type: history-graph
         title: 'Internet connectivity'
-        hours_to_show: 72
+        hours_to_show: 720
         entities:
           - binary_sensor.internet_connection
       - type: statistics-graph
         title: 'Water consumption'
-        chart_type: bar
-        period: day
-        days_to_show: 30
-        stat_types:
-          - state
-          - mean
-          - sum
+        hours_to_show: 720
         entities:
           - sensor.suez_water_client
       - type: statistics-graph
         title: 'Vigicrue'
-        chart_type: line
-        period: hour
-        days_to_show: 1
-        stat_types:
-          - state
+        hours_to_show: 720
         entities:
           - sensor.rest_vigicrue_hydro_observation
       - type: statistics-graph
         title: 'Raspberry Pi temperature'
-        chart_type: line
-        period: hour
-        days_to_show: 15
-        stat_types:
-          - state
+        hours_to_show: 720
         entities:
           - sensor.rasp_temperature
