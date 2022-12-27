@@ -78,6 +78,10 @@ sensor:
       - CdStationHydro
       - LbStationHydro
     scan_interval: 300
+    state_class: measurement
+    unit_of_measurement: m
+    device_class: water
+
   # Transilien (trains)
   # - platform: rest
   #   name: rest_transilien_search
@@ -95,12 +99,16 @@ sensor:
     username: !secret suez_water_consumption_username
     password: !secret suez_water_consumption_password
     counter_id: !secret suez_water_consumption_counter_id
+    state_class: measurement
   # Raspberry Pi CPU temperature
   - platform: command_line
     name: rasp_temperature
     command: 'cat /sys/class/thermal/thermal_zone0/temp'
     value_template: '{{value | multiply(0.001) | round}}'
     scan_interval: 900
+    state_class: measurement
+    unit_of_measurement: °C
+    device_class: temperature
 
 binary_sensor:
   - platform: ping
