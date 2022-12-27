@@ -106,7 +106,6 @@ sensor:
     value_template: '{{value | multiply(0.001) | round}}'
     scan_interval: 900
     unit_of_measurement: °C
-    device_class: temperature
 
 binary_sensor:
   - platform: ping
