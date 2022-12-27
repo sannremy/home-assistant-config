@@ -27,4 +27,5 @@ views:
         days_to_show: 1
         stat_types:
           - state
-        entities: sensor.rest_vigicrue_hydro_observation
+        entities: 
+          - sensor.rest_vigicrue_hydro_observation
