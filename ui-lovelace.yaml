@@ -24,8 +24,7 @@ views:
         title: 'Vigicrue'
         chart_type: line
         period: hour
-        days_to_show: 7
+        days_to_show: 1
         stat_types:
           - state
-        entities:
-          - sensor.rest_vigicrue_hydro_observation
+        entities: sensor.rest_vigicrue_hydro_observation
