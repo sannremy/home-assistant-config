@@ -9,17 +9,17 @@ views:
         hours_to_show: 720
         entities:
           - binary_sensor.internet_connection
-      - type: statistics-graph
+      - type: history-graph
         title: 'Water consumption'
         hours_to_show: 720
         entities:
           - sensor.suez_water_client
-      - type: statistics-graph
+      - type: history-graph
         title: 'Vigicrue'
         hours_to_show: 720
         entities:
           - sensor.rest_vigicrue_hydro_observation
-      - type: statistics-graph
+      - type: history-graph
         title: 'Raspberry Pi temperature'
         hours_to_show: 720
         entities:
