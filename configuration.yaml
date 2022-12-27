@@ -16,7 +16,7 @@ history:
   include:
     entities:
       - binary_sensor.internet_connection
-      - sensor.suez_water
+      - sensor.suez_water_client
       - sensor.rest_vigicrue_hydro_observation
       - sensor.rasp_temperature
 

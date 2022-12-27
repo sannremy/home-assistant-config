@@ -19,7 +19,7 @@ views:
           - mean
           - sum
         entities:
-          - sensor.suez_water
+          - sensor.suez_water_client
       - type: statistics-graph
         title: 'Vigicrue'
         chart_type: line
