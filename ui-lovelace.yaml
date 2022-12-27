@@ -9,23 +9,13 @@ views:
         hours_to_show: 72
         entities:
           - binary_sensor.internet_connection
-      - type: statistics-graph
+      - type: history-graph
         title: 'Water consumption'
-        chart_type: bar
-        period: day
-        days_to_show: 30
-        stat_types:
-          - state
-          - mean
-          - sum
+        hours_to_show: 72
         entities:
           - sensor.suez_water_client
-      - type: statistics-graph
+      - type: history-graph
         title: 'Vigicrue'
-        chart_type: line
-        period: hour
-        days_to_show: 1
-        stat_types:
-          - state
-        entities: 
+        hours_to_show: 72
+        entities:
           - sensor.rest_vigicrue_hydro_observation
