@@ -20,6 +20,9 @@ history:
       - sensor.rest_vigicrue_hydro_observation
       - sensor.rasp_temperature
 
+# Mobile app for notifications
+mobile_app:
+
 # Sunset and sunrise time
 sun:
 
