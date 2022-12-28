@@ -71,3 +71,27 @@
       data:
         credentials: !secret r7000_credentials
         router_ip: !secret r7000_router_ip
+- id: notify_internet_disconnection
+  alias: "Notify - Internet disconnection"
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.internet_connection
+    to: 'off'
+  action:
+    - service: !secret notify_mobile_me
+      data:
+        message: "Internet connection lost"
+        title: "Oh noes! 😖"
+- id: notify_internet_connection
+  alias: "Notify - Internet connection"
+  initial_state: 'off'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.internet_connection
+    to: 'on'
+  action:
+    - service: !secret notify_mobile_me
+      data:
+        message: "Internet connection restored"
+        title: "Yay! 🎉"
