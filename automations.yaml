@@ -95,3 +95,14 @@
       data:
         message: "Internet connection restored"
         title: "Yay! 🎉"
+- id: notify_vigicrue
+  alias: "Notify - Vigicrue"
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.rest_vigicrue_hydro_observation
+    above: 1.8
+  action:
+    - service: !secret notify_mobile_me
+      data:
+        message: "Vigicrue alert"
+        title: "Above 1.8m 🌊"
