@@ -106,3 +106,15 @@
       data:
         message: "Vigicrue alert"
         title: "Above 1.8m 🌊"
+- id: notify_laundry1_finished
+  alias: "Notify - Laundry 1 finished"
+  trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.laundry1
+  action:
+    - service: !secret notify_mobile_me
+      data:
+        message: "Laundry"
+        title: "1:30 finished"
