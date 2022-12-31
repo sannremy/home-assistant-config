@@ -24,3 +24,15 @@ views:
         hours_to_show: 720
         entities:
           - sensor.rasp_temperature
+      - type: entities
+        entities:
+          - entity: timer.laundry1
+            name: Laundry 01:30
+          - entity: timer.laundry2
+            name: Laundry 02:00
+          - entity: timer.dryer1
+            name: Dryer 00:45
+          - entity: timer.dryer2
+            name: Dryer 01:10
+          - entity: timer.dryer3
+            name: Dryer 03:00
