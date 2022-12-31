@@ -117,4 +117,52 @@
     - service: !secret notify_mobile_me
       data:
         message: "Laundry"
-        title: "1:30 finished"
+        title: "01:30 finished"
+- id: notify_laundry2_finished
+  alias: "Notify - Laundry 2 finished"
+  trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.laundry2
+  action:
+    - service: !secret notify_mobile_me
+      data:
+        message: "Laundry"
+        title: "02:00 finished"
+- id: notify_dryer1_finished
+  alias: "Notify - Dryer 1 finished"
+  trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.dryer1
+  action:
+    - service: !secret notify_mobile_me
+      data:
+        message: "Dryer"
+        title: "00:45 finished"
+- id: notify_dryer2_finished
+  alias: "Notify - Dryer 2 finished"
+  trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.dryer2
+  action:
+    - service: !secret notify_mobile_me
+      data:
+        message: "Dryer"
+        title: "01:10 finished"
+- id: notify_dryer3_finished
+  alias: "Notify - Dryer 3 finished"
+  trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.dryer3
+  action:
+    - service: !secret notify_mobile_me
+      data:
+        message: "Dryer"
+        title: "03:00 finished"
