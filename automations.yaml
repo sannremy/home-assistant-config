@@ -116,7 +116,7 @@
   action:
     - service: !secret notify_mobile_me
       data:
-        message: "Laundry"
+        message: "Laundry 🧺"
         title: "01:30 finished"
 - id: notify_laundry2_finished
   alias: "Notify - Laundry 2 finished"
@@ -128,7 +128,7 @@
   action:
     - service: !secret notify_mobile_me
       data:
-        message: "Laundry"
+        message: "Laundry 🧺"
         title: "02:00 finished"
 - id: notify_dryer1_finished
   alias: "Notify - Dryer 1 finished"
@@ -140,7 +140,7 @@
   action:
     - service: !secret notify_mobile_me
       data:
-        message: "Dryer"
+        message: "Dryer ♨️"
         title: "00:45 finished"
 - id: notify_dryer2_finished
   alias: "Notify - Dryer 2 finished"
@@ -152,7 +152,7 @@
   action:
     - service: !secret notify_mobile_me
       data:
-        message: "Dryer"
+        message: "Dryer ♨️"
         title: "01:10 finished"
 - id: notify_dryer3_finished
   alias: "Notify - Dryer 3 finished"
@@ -164,5 +164,5 @@
   action:
     - service: !secret notify_mobile_me
       data:
-        message: "Dryer"
+        message: "Dryer ♨️"
         title: "03:00 finished"
