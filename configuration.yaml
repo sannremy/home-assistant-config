@@ -12,6 +12,7 @@ homeassistant:
 
 # Integration, users, history, etc.
 config:
+logbook:
 history:
   include:
     entities:
