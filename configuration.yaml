@@ -14,6 +14,12 @@ homeassistant:
 config:
 recorder:
   db_url: !secret mariadb_url
+  include:
+    entities:
+      - binary_sensor.internet_connection
+      - sensor.suez_water_client
+      - sensor.rest_vigicrue_hydro_observation
+      - sensor.rasp_temperature
 logbook:
 history:
   include:
