@@ -12,6 +12,8 @@ homeassistant:
 
 # Integration, users, history, etc.
 config:
+recorder:
+  db_url: !secret mariadb_url
 logbook:
 history:
   include:
