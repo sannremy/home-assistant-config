@@ -50,11 +50,6 @@ hue:
       allow_hue_groups: false
       allow_unreachable: true
 
-# Netatmo
-netatmo:
-  client_id: !secret netatmo_client_id
-  client_secret: !secret netatmo_client_secret
-
 # Wait for implementation on RPi + sniffing codes (https://github.com/ninjablocks/433Utils)
 # switch:
 #   - platform: rpi_rf
@@ -92,7 +87,7 @@ sensor:
     scan_interval: 300
     state_class: measurement
     unit_of_measurement: m
-    device_class: water
+    device_class: distance
 
   # Transilien (trains)
   # - platform: rest
