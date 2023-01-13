@@ -12,22 +12,14 @@ homeassistant:
 
 # Integration, users, history, etc.
 config:
+history:
+  include: !include history_include.yaml
 recorder:
   db_url: !secret mariadb_url
-  include:
-    entities:
-      - binary_sensor.internet_connection
-      - sensor.suez_water_client
-      - sensor.rest_vigicrue_hydro_observation
-      - sensor.rasp_temperature
+  purge_keep_days: 7
+  include: !include history_include.yaml
 logbook:
-history:
-  include:
-    entities:
-      - binary_sensor.internet_connection
-      - sensor.suez_water_client
-      - sensor.rest_vigicrue_hydro_observation
-      - sensor.rasp_temperature
+  include: !include history_include.yaml
 
 # Mobile app for notifications
 mobile_app:

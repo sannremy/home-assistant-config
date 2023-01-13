@@ -8,22 +8,7 @@ views:
         title: 'Internet connectivity'
         entities:
           - binary_sensor.internet_connection
-        hours_to_show: 720
-      - type: history-graph
-        title: 'Water consumption'
-        hours_to_show: 720
-        entities:
-          - sensor.suez_water_client
-      - type: history-graph
-        title: 'Vigicrue'
-        hours_to_show: 720
-        entities:
-          - sensor.rest_vigicrue_hydro_observation
-      - type: history-graph
-        title: 'Raspberry Pi temperature'
-        hours_to_show: 720
-        entities:
-          - sensor.rasp_temperature
+        hours_to_show: 168
       - type: entities
         entities:
           - entity: timer.laundry1
