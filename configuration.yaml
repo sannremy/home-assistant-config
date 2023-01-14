@@ -16,7 +16,7 @@ history:
   include: !include history_include.yaml
 recorder:
   db_url: !secret mariadb_url
-  purge_keep_days: 2
+  purge_keep_days: 32
   include: !include history_include.yaml
 logbook:
   include: !include history_include.yaml

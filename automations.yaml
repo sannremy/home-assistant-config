@@ -106,6 +106,17 @@
       data:
         message: "Vigicrue alert"
         title: "Above 1.8m 🌊"
+- id: notify_suez_water
+  alias: "Notify - Suez"
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.suez_water_client
+    above: 500
+  action:
+    - service: !secret notify_mobile_me
+      data:
+        message: "Suez alert"
+        title: "Above 500L 💧"
 - id: notify_laundry1_finished
   alias: "Notify - Laundry 1 finished"
   trigger:

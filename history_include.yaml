@@ -1,2 +1,5 @@
 entities:
   - binary_sensor.internet_connection
+  - sensor.rasp_temperature
+  - sensor.suez_water_client
+  - sensor.rest_vigicrue_hydro_observation
