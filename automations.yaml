@@ -1,6 +1,5 @@
 - id: update_morning_commute_sensor
   alias: "Commute - Update morning commute sensor"
-  initial_state: 'on'
   trigger:
     - platform: time_pattern
       minutes: '/5'
@@ -20,7 +19,6 @@
       entity_id: sensor.google_travel_time_destination_1
 - id: create_weekly_backup
   alias: "Backup - Create snapshot weekly"
-  initial_state: 'on'
   trigger:
     platform: time
     at: '04:00:00'
@@ -49,7 +47,6 @@
         input: {"command":"upload"}
 - id: netatmo_ftp_clean_up
   alias: "Netatmo - FTP clean up"
-  initial_state: 'on'
   trigger:
     platform: time_pattern
     hours: "*"
@@ -58,7 +55,6 @@
     - service: shell_command.netatmo_ftp_clean_up
 - id: r7000_backup
   alias: "R7000 - Backup"
-  initial_state: 'on'
   trigger:
     platform: time
     at: '05:00:00'
@@ -73,11 +69,12 @@
         router_ip: !secret r7000_router_ip
 - id: notify_internet_disconnection
   alias: "Notify - Internet disconnection"
-  initial_state: 'on'
   trigger:
-    platform: state
-    entity_id: binary_sensor.internet_connection
-    to: 'off'
+    - platform: state
+      entity_id:
+        - binary_sensor.internet_connection
+      from: 'on'
+      to: 'off'
   action:
     - service: !secret notify_mobile_me
       data:
@@ -85,11 +82,12 @@
         title: "Oh noes! 😖"
 - id: notify_internet_connection
   alias: "Notify - Internet connection"
-  initial_state: 'off'
   trigger:
-    platform: state
-    entity_id: binary_sensor.internet_connection
-    to: 'on'
+    - platform: state
+      entity_id:
+        - binary_sensor.internet_connection
+      from: 'off'
+      to: 'on'
   action:
     - service: !secret notify_mobile_me
       data:
