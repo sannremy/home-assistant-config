@@ -35,6 +35,7 @@
           - core_ssh
           - core_check_config
           - core_git_pull
+          - core_mariadb
           - a0d7b954_ftp
           - 7be23ff5_dropbox_sync
         folders:
