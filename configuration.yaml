@@ -105,6 +105,13 @@ sensor:
     value_template: '{{value | multiply(0.001) | round}}'
     scan_interval: 900
     unit_of_measurement: °C
+  - platform: rest
+    resource: !secret healthcheck_ping_url
+    name: healthcheck_ping
+    method: GET
+    timeout: 8
+    scan_interval: 10
+    value_template: '{{value}}'
 
 binary_sensor:
   - platform: ping
