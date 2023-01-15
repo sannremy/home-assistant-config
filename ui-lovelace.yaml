@@ -18,6 +18,6 @@ views:
           - entity: timer.dryer1
             name: Dryer 00:45
           - entity: timer.dryer2
-            name: Dryer 01:10
+            name: Dryer 01:20
           - entity: timer.dryer3
             name: Dryer 03:00
