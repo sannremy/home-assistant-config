@@ -109,8 +109,8 @@ sensor:
     resource: !secret healthcheck_ping_url
     name: healthcheck_ping
     method: GET
-    timeout: 8
-    scan_interval: 10
+    timeout: 10
+    scan_interval: 30
     value_template: '{{value}}'
 
 binary_sensor:
