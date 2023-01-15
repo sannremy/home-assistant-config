@@ -33,7 +33,6 @@
         name: Hassio - {{now().strftime('%y-%m-%d')}}
         addons:
           - core_ssh
-          - core_check_config
           - core_git_pull
           - core_mariadb
           - a0d7b954_ftp
