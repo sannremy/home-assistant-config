@@ -131,7 +131,7 @@ timer:
     duration: '00:45:00'
     icon: mdi:tumble-dryer
   dryer2:
-    duration: '01:10:00'
+    duration: '01:20:00'
     icon: mdi:tumble-dryer
   dryer3:
     duration: '03:00:00'
