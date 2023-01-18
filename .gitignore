@@ -11,6 +11,7 @@
 !*/.gitkeep
 !shell/netatmo_ftp_clean_up.sh
 !shell/r7000_backup.sh
+!shell/dropbox_sync.sh
 
 # Ignore folders.
 .storage

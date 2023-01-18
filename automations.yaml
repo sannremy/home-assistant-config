@@ -35,16 +35,11 @@
           - core_ssh
           - core_git_pull
           - a0d7b954_ftp
-          - 7be23ff5_dropbox_sync
         folders:
           - homeassistant
           - addons/local
           - ssl
-    - service: hassio.addon_stdin
-      data_template:
-        addon: 7be23ff5_dropbox_sync
-        input:
-          command: upload
+    - service: shell_command.dropbox_sync
 - id: netatmo_ftp_clean_up
   alias: "Netatmo - FTP clean up"
   trigger:
