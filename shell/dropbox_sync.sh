@@ -7,7 +7,7 @@
 # Usage:
 # ./dropbox_sync.sh local_backup_folder remote_backup_folder keep_last
 
-config_file="$HOME/.dropbox_uploader"
+config_file="/config/shell/.dropbox_uploader"
 local_backup_folder=$1
 remote_backup_folder=$2
 keep_last=$3
