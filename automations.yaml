@@ -39,6 +39,12 @@
           - homeassistant
           - addons/local
           - ssl
+- id: dropbox_sync_upload
+  alias: "Dropbox sync - Backup"
+  trigger:
+    platform: time
+    at: '06:00:00'
+  action:
     - service: shell_command.dropbox_sync
 - id: netatmo_ftp_clean_up
   alias: "Netatmo - FTP clean up"
