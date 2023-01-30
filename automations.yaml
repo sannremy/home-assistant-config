@@ -44,6 +44,11 @@
   trigger:
     platform: time
     at: '06:00:00'
+  condition:
+    condition: time
+    weekday:
+      - mon
+      - fri
   action:
     - service: shell_command.dropbox_sync
 - id: netatmo_ftp_clean_up
