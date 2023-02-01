@@ -2,7 +2,7 @@
 
 # Pre-requisites:
 #   1. Execute dropbox_uploader.sh in order to generate the config file
-#   2. Copy the config file to the home directory AS ~/.dropbox_uploader
+#   2. Copy the config file to the home directory AS /config/shell/.dropbox_uploader
 
 # Usage:
 # ./dropbox_sync.sh local_backup_folder remote_backup_folder keep_last

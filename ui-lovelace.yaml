@@ -4,11 +4,14 @@ views:
   - title: !secret home_name
     id: home_view
     cards:
+      # Internet connectivity
       - type: logbook
         title: 'Internet connectivity'
         entities:
           - binary_sensor.internet_connection
         hours_to_show: 168
+
+      # Laundry and dryer
       - type: entities
         entities:
           - entity: timer.laundry1
@@ -21,3 +24,19 @@ views:
             name: Dryer 01:20
           - entity: timer.dryer3
             name: Dryer 03:00
+      - type: entities
+        entities:
+          - entity: sensor.netatmo_anemometer_battery_percent
+            name: Anemometer
+          - entity: sensor.netatmo_attic_battery_percent
+            name: Attic
+          - entity: sensor.netatmo_backyard_battery_percent
+            name: Backyard
+          - entity: sensor.netatmo_bedroom1_battery_percent
+            name: Bedroom (N)
+          - entity: sensor.netatmo_master_bedroom_battery_percent
+            name: Bedroom (C)
+          - entity: sensor.netatmo_rain_gauge_battery_percent
+            name: Rain gauge
+          - entity: sensor.thermostat_battery_percent_2
+            name: Thermostat
