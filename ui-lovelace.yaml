@@ -9,7 +9,7 @@ views:
         title: 'Internet connectivity'
         entities:
           - binary_sensor.internet_connection
-        hours_to_show: 168
+        hours_to_show: 744 # 31 days
 
       # Laundry and dryer
       - type: entities

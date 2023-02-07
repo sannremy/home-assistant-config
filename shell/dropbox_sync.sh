@@ -23,8 +23,7 @@ local_list=($(ls -1 -t $local_backup_folder | head -n $keep_last))
 # Upload sorted local files to dropbox (most recent files)
 for file_name in "${local_list[@]}"; do
     # Upload file to dropbox
-    echo "Upload $file_name if not exists"
-    ./dropbox_uploader.sh -s -f $config_file upload $local_backup_folder/$file_name $remote_backup_folder
+    ./dropbox_uploader.sh -q -s -f $config_file upload $local_backup_folder/$file_name $remote_backup_folder
 done
 
 # Loop through remote_list
@@ -45,11 +44,9 @@ while read -r line; do
     # Check if file exists in local_list array
     if [[ " ${local_list[@]} " =~ " $file_name " ]]; then
         # File exists in local folder
-        echo "Keep $file_name"
     else
-        echo "Delete $file_name"
         # Delete file from dropbox
-        ./dropbox_uploader.sh -f $config_file delete $file_name
+        ./dropbox_uploader.sh -q -f $config_file delete $file_name
     fi
 done <<< "$remote_list"
 
