@@ -50,7 +50,11 @@
       - mon
       - fri
   action:
-    - service: shell_command.dropbox_sync
+    - service: hassio.addon_stdin
+      data:
+        addon: core_ssh
+        input: "bash /config/shell/dropbox_sync.sh /backup / 10"
+    # - service: shell_command.dropbox_sync
 - id: netatmo_ftp_clean_up
   alias: "Netatmo - FTP clean up"
   trigger:
