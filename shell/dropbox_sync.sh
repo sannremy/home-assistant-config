@@ -21,7 +21,7 @@ remote_list=$(./dropbox_uploader.sh -f $config_file list $remote_backup_folder)
 local_list=($(ls -1 -t $local_backup_folder | head -n $keep_last))
 
 echo "$remote_list" >> debug.log
-echo "$local_list" >> debug.log
+echo "${local_list[@]}" >> debug.log
 
 # Upload sorted local files to dropbox (most recent files)
 # for file_name in "${local_list[@]}"; do
