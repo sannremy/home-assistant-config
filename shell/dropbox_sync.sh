@@ -18,16 +18,13 @@ chmod +x dropbox_uploader.sh
 
 # Compare files in dropbox and local folder
 remote_list=$(./dropbox_uploader.sh -f $config_file list $remote_backup_folder)
-local_list=$(ls -1 -t $local_backup_folder | head -n $keep_last)
-
-echo "$remote_list" >> debug.log
-echo "$local_list" >> debug.log
+local_list=($(ls -d $local_backup_folder/* | head -n $keep_last))
 
 # Upload sorted local files to dropbox (most recent files)
-# for file_name in "${local_list[@]}"; do
-#     # Upload file to dropbox
-#     ./dropbox_uploader.sh -q -s -f $config_file upload $local_backup_folder/$file_name $remote_backup_folder
-# done
+for file_name in "${local_list[@]}"; do
+    # Upload file to dropbox
+    ./dropbox_uploader.sh -q -s -f $config_file upload $file_name $remote_backup_folder
+done
 
 # # Loop through remote_list
 # index=0
