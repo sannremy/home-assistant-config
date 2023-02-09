@@ -23,6 +23,7 @@ local_list=($(ls -1 -t $local_backup_folder | head -n $keep_last))
 # Upload sorted local files to dropbox (most recent files)
 for file_name in "${local_list[@]}"; do
     # Upload file to dropbox
+    echo "./dropbox_uploader.sh -q -s -f $config_file upload $local_backup_folder/$file_name $remote_backup_folder" >> debug.log
     ./dropbox_uploader.sh -q -s -f $config_file upload $local_backup_folder/$file_name $remote_backup_folder
 done
 
