@@ -19,6 +19,7 @@ chmod +x dropbox_uploader.sh
 # Compare files in dropbox and local folder
 remote_list=$(./dropbox_uploader.sh -f $config_file list $remote_backup_folder)
 local_list=$(ls -d $local_backup_folder/* | head -n $keep_last)
+local_list=$(curl -sSL -H "Authorization: Bearer $SUPERVISOR_TOKEN" http://supervisor/backups | jq -r '.data.backups |= sort_by(.date)' | jq -r '[.data.backups[] | "'$local_backup_folder'" + .slug + ".tar"] | reverse | .[]' | head -n $keep_last)
 
 # Upload sorted local files to dropbox (most recent files)
 while read -r line; do
