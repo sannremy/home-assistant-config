@@ -13,7 +13,7 @@ remote_backup_folder=$2
 keep_last=$3
 
 # Download dropbox_uploader.sh and make it executable
-curl "https://raw.githubusercontent.com/andreafabrizi/Dropbox-Uploader/master/dropbox_uploader.sh" -o dropbox_uploader.sh
+curl -s "https://raw.githubusercontent.com/andreafabrizi/Dropbox-Uploader/master/dropbox_uploader.sh" -o dropbox_uploader.sh
 chmod +x dropbox_uploader.sh
 
 # Compare files in dropbox and local folder
@@ -35,15 +35,13 @@ while read -r line; do
         continue
     fi
 
-    # Increment index
-    index=$((index+1))
-
     # Get file name
     file_name=$(echo $line | awk '{print $3}')
 
     # Check if file exists in local_list
     if echo $local_list | grep -q $file_name; then
         # File exists in local folder
+        echo "File $file_name exists in local folder"
     else
         # Delete file from dropbox
         ./dropbox_uploader.sh -q -f $config_file delete $file_name
