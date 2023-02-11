@@ -12,7 +12,7 @@ remote_backup_folder=$1
 keep_last=$2
 
 # Download dropbox_uploader.sh and make it executable
-curl -s "https://raw.githubusercontent.com/andreafabrizi/Dropbox-Uploader/master/dropbox_uploader.sh" -o dropbox_uploader.sh
+curl -sSL "https://raw.githubusercontent.com/andreafabrizi/Dropbox-Uploader/master/dropbox_uploader.sh" -o dropbox_uploader.sh
 chmod +x dropbox_uploader.sh
 
 # Compare files in dropbox and local folder
@@ -26,7 +26,7 @@ while read -r slug; do
     if [ $index -lt $keep_last ]; then
         output="/tmp/$slug.tar"
         # Fetch backup file from supervisor
-        curl -sSL -H "Authorization: Bearer $SUPERVISOR_TOKEN" http://supervisor/backups/$slug/download --output $output
+        curl -sSL -H "Authorization: Bearer $SUPERVISOR_TOKEN" http://supervisor/backups/$slug/download -o $output
 
         # Upload file to dropbox
         ./dropbox_uploader.sh -q -s -f $config_file upload $output $remote_backup_folder
