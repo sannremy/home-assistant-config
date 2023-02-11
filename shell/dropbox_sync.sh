@@ -17,20 +17,33 @@ chmod +x dropbox_uploader.sh
 
 # Compare files in dropbox and local folder
 remote_list=$(./dropbox_uploader.sh -f $config_file list $remote_backup_folder)
-local_list=$(curl -sSL -H "Authorization: Bearer $SUPERVISOR_TOKEN" http://supervisor/backups | jq -r '.data.backups |= sort_by(.date)' | jq -r '[.data.backups[] | .slug] | reverse | .[]' | head -n $keep_last)
+local_list=$(curl -sSL -H "Authorization: Bearer $SUPERVISOR_TOKEN" http://supervisor/backups | jq -r '.data.backups |= sort_by(.date)' | jq -r '[.data.backups[] | .slug] | reverse | .[]')
 
 # Upload sorted local files to dropbox (most recent files)
+index=0
 while read -r slug; do
-    output="/tmp/$slug.tar"
-    # Fetch backup file from supervisor
-    curl -s -H "Authorization: Bearer $SUPERVISOR_TOKEN" http://supervisor/backups/$slug/download --output $output
+    # Upload only the last $keep_last files
+    if [ $index -lt $keep_last ]; then
+        output="/tmp/$slug.tar"
+        # Fetch backup file from supervisor
+        curl -s -H "Authorization: Bearer $SUPERVISOR_TOKEN" http://supervisor/backups/$slug/download --output $output
 
-    # Upload file to dropbox
-    ./dropbox_uploader.sh -q -s -f $config_file upload $output $remote_backup_folder
+        # Upload file to dropbox
+        ./dropbox_uploader.sh -q -s -f $config_file upload $output $remote_backup_folder
 
-    # Clean up
-    rm $output
+        # Clean up
+        rm $output
+    else
+        # Delete file from local folder
+        curl -s -X DELETE -H "Authorization: Bearer $SUPERVISOR_TOKEN" http://supervisor/backups/$slug
+    fi
+
+    index=$((index+1))
+
 done <<< "$local_list"
+
+# Take only the most recent files
+local_list=$(echo $local_list | head -n $keep_last)
 
 # Loop through remote_list
 index=0
