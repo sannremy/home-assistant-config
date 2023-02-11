@@ -45,6 +45,7 @@ done <<< "$local_list"
 # Take only the most recent files
 local_list=$(echo $local_list | head -n $keep_last)
 
+# Remove files from Dropbox that are not in local folder
 # Loop through remote_list
 index=0
 while read -r line; do
