@@ -26,7 +26,7 @@ while read -r slug; do
     if [ $index -lt $keep_last ]; then
         output="/tmp/$slug.tar"
         # Fetch backup file from supervisor
-        curl -s -H "Authorization: Bearer $SUPERVISOR_TOKEN" http://supervisor/backups/$slug/download --output $output
+        curl -sSL -H "Authorization: Bearer $SUPERVISOR_TOKEN" http://supervisor/backups/$slug/download --output $output
 
         # Upload file to dropbox
         ./dropbox_uploader.sh -q -s -f $config_file upload $output $remote_backup_folder
@@ -34,39 +34,18 @@ while read -r slug; do
         # Clean up
         rm $output
     else
+        # Delete file from Dropbox
+        if echo $remote_list | grep -q $slug; then
+            ./dropbox_uploader.sh -q -f $config_file delete $remote_backup_folder/$slug.tar
+        fi
+
         # Delete file from local folder
-        curl -s -X DELETE -H "Authorization: Bearer $SUPERVISOR_TOKEN" http://supervisor/backups/$slug
+        curl -sSL -X DELETE -H "Authorization: Bearer $SUPERVISOR_TOKEN" http://supervisor/backups/$slug
     fi
 
     index=$((index+1))
 
 done <<< "$local_list"
-
-# Take only the most recent files
-local_list=$(echo $local_list | head -n $keep_last)
-
-# Remove files from Dropbox that are not in local folder
-# Loop through remote_list
-index=0
-while read -r line; do
-    # Skip first line
-    if [ $index -eq 0 ]; then
-        index=1
-        continue
-    fi
-
-    # Get file name
-    file_name=$(echo $line | awk '{print $3}')
-
-    # Check if file exists in local_list
-    if echo $local_list | grep -q $file_name; then
-        # File exists in local folder
-        echo "File $file_name exists in local folder"
-    else
-        # Delete file from dropbox
-        ./dropbox_uploader.sh -q -f $config_file delete $file_name
-    fi
-done <<< "$remote_list"
 
 # Clean up
 rm dropbox_uploader.sh
