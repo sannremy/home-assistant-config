@@ -11,13 +11,9 @@ views:
           - binary_sensor.internet_connection
         hours_to_show: 744 # 31 days
 
-      # Laundry and dryer
+      # Dryer
       - type: entities
         entities:
-          - entity: timer.laundry1
-            name: Laundry 01:30
-          - entity: timer.laundry2
-            name: Laundry 02:00
           - entity: timer.dryer1
             name: Dryer 00:45
           - entity: timer.dryer2

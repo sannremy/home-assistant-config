@@ -121,30 +121,6 @@
       data:
         message: "Suez alert"
         title: "Above 500L 💧"
-- id: notify_laundry1_finished
-  alias: "Notify - Laundry 1 finished"
-  trigger:
-    - platform: event
-      event_type: timer.finished
-      event_data:
-        entity_id: timer.laundry1
-  action:
-    - service: !secret notify_mobile_me
-      data:
-        message: "Laundry 🧺"
-        title: "01:30 finished"
-- id: notify_laundry2_finished
-  alias: "Notify - Laundry 2 finished"
-  trigger:
-    - platform: event
-      event_type: timer.finished
-      event_data:
-        entity_id: timer.laundry2
-  action:
-    - service: !secret notify_mobile_me
-      data:
-        message: "Laundry 🧺"
-        title: "02:00 finished"
 - id: notify_dryer1_finished
   alias: "Notify - Dryer 1 finished"
   trigger:

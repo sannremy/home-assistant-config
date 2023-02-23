@@ -12,7 +12,7 @@ I run Home assistant on a Raspberry Pi 4 (8Gb).
 - River level monitoring with Vigicrue (river data service in France).
 - Internet connectivity operated by Altitude Infra and Bouygues Telecom.
 - Morning commute to work office.
-- Washing machine and dryer time durations.
+- Dryer time durations.
 
 ## Alerting
 - River level above a threshold (river level data service in France).
