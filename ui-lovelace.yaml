@@ -14,6 +14,10 @@ views:
       # Dryer
       - type: entities
         entities:
+          # Added in /config/custom_components/hon
+          # Integration done with https://github.com/gvigroux/hon
+          - entity: sensor.washing_machine_time_remaining
+            name: Washing machine
           - entity: timer.dryer1
             name: Dryer 00:45
           - entity: timer.dryer2
