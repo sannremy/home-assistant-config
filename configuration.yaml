@@ -76,7 +76,7 @@ sensor:
     json_attributes:
       - CdStationHydro
       - LbStationHydro
-    scan_interval: 300
+    scan_interval: 900
     state_class: measurement
     unit_of_measurement: m
     device_class: distance
