@@ -1,27 +1,16 @@
 #!/bin/bash
 
+# Backup Netgear R7000 router config via SSH with authorized keys (Fresh Tomato)
 # Usage:
-# ./r7000_backup.sh username:password router_ip
+# ./r7000_backup.sh username router_ip
 
-folder="/share/r7000"
-hostname=$2
+username=$1
+router_ip=$2
 
-target_cookie="http://${hostname}/"
-target_config="http://${hostname}/NETGEAR_R7000.cfg"
-
-credentials=$(echo -ne $1 | base64)
 date=$(date +"%d-%m-%Y")
-dest="${folder}/backup-$date.cfg"
+folder="/share/r7000"
+file="backup-$date.cfg"
 
-# Get XSRF token from cookie
-curl -s -c cookie.txt $target_cookie > /dev/null
-token=$(tail -n1 cookie.txt  | awk '{print $NF}')
-
-# Download R7000 config
-curl $target_config \
-    -H "Authorization: Basic ${credentials}" \
-    -H "Cookie: XSRF_TOKEN=${token}" \
-    --output $dest
-
-# Clean up
-rm cookie.txt
+ssh $username@$router_ip "nvram save $file"
+scp $username@$router_ip:$file $folder
+ssh $username@$router_ip "rm $file"
