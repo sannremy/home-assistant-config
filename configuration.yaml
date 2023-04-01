@@ -134,7 +134,7 @@ timer:
 # Shell commands
 shell_command:
   netatmo_ftp_clean_up: bash /config/shell/netatmo_ftp_clean_up.sh
-  r7000_backup: bash /config/shell/r7000_backup.sh {{ username }} {{ router_ip }}
+  r7000_backup: bash /config/shell/r7000_backup.sh {{ username }} {{ password }} {{ router_ip }}
   dropbox_sync: bash /config/shell/dropbox_sync.sh / 10
 
 group: !include groups.yaml

@@ -72,6 +72,7 @@
     - service: shell_command.r7000_backup
       data:
         username: !secret r7000_username
+        password: !secret r7000_password
         router_ip: !secret r7000_router_ip
 - id: notify_internet_disconnection
   alias: "Notify - Internet disconnection"
