@@ -14,5 +14,5 @@ file="backup-$date.cfg"
 
 apk add sshpass
 sshpass -p $password ssh $username@$router_ip "nvram save $file"
-sshpass -p $password scp $username@$router_ip:$file $folder
+sshpass -p $password scp -O $username@$router_ip:$file $folder
 sshpass -p $password ssh $username@$router_ip "rm $file"
