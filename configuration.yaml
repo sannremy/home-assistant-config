@@ -22,7 +22,7 @@ logbook:
   include: !include history_include.yaml
 
 logger:
-  default: warn
+  default: warning
   logs:
     homeassistant.components.shell_command: debug
 
