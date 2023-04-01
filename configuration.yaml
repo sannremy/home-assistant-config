@@ -21,6 +21,11 @@ recorder:
 logbook:
   include: !include history_include.yaml
 
+logger:
+  default: warn
+  logs:
+    homeassistant.components.shell_command: debug
+
 # Mobile app for notifications
 mobile_app:
 
