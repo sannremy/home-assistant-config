@@ -12,8 +12,7 @@ homeassistant:
 
 # Integration, users, history, etc.
 config:
-history:
-  include: !include history_include.yaml
+history: !include history_include.yaml
 recorder:
   db_url: !secret mariadb_url
   purge_keep_days: 32
@@ -31,9 +30,6 @@ mobile_app:
 
 # Sunset and sunrise time
 sun:
-
-# DNS IP (public IP)
-dnsip:
 
 # Frontend config (see ./ui-lovelace.yaml)
 frontend:
@@ -120,6 +116,9 @@ sensor:
     timeout: 10
     scan_interval: 30
     value_template: '{{value}}'
+  - platform: dnsip
+    name: public_ip
+    scan_interval: 120
 
 binary_sensor:
   - platform: ping
