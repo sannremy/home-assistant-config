@@ -111,8 +111,8 @@ sensor:
     scan_interval: 900
     unit_of_measurement: °C
   - platform: rest
-    resource: !secret healthcheck_ping_url
-    name: healthcheck_ping
+    resource: !secret healthcheck_internet_url
+    name: healthcheck_internet
     method: GET
     timeout: 10
     scan_interval: 30
