@@ -12,7 +12,8 @@ homeassistant:
 
 # Integration, users, history, etc.
 config:
-history: !include history_include.yaml
+history:
+  include: !include history_include.yaml
 recorder:
   db_url: !secret mariadb_url
   purge_keep_days: 32
