@@ -32,6 +32,9 @@ mobile_app:
 # Sunset and sunrise time
 sun:
 
+# DNS IP (public IP)
+dnsip:
+
 # Frontend config (see ./ui-lovelace.yaml)
 frontend:
 lovelace:
