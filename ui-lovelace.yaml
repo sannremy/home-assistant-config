@@ -4,11 +4,11 @@ views:
   - title: !secret home_name
     id: home_view
     cards:
-      # Internet connectivity
+      # Fiber connectivity
       - type: logbook
-        title: 'Internet connectivity'
+        title: 'Fiber connectivity'
         entities:
-          - binary_sensor.internet_connection
+          - binary_sensor.fiber_connection
         hours_to_show: 744 # 31 days
 
       # Dryer

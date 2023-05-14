@@ -74,31 +74,31 @@
         username: !secret r7000_username
         password: !secret r7000_password
         router_ip: !secret r7000_router_ip
-- id: notify_internet_disconnection
-  alias: "Notify - Internet disconnection"
+- id: notify_fiber_disconnection
+  alias: "Notify - Fiber disconnection"
   trigger:
     - platform: state
       entity_id:
-        - binary_sensor.internet_connection
+        - binary_sensor.fiber_connection
       from: 'on'
       to: 'off'
   action:
     - service: !secret notify_mobile_me
       data:
-        message: "Internet connection lost"
+        message: "Fiber connection lost"
         title: "Oh noes! 😖"
-- id: notify_internet_connection
-  alias: "Notify - Internet connection"
+- id: notify_fiber_connection
+  alias: "Notify - Fiber connection"
   trigger:
     - platform: state
       entity_id:
-        - binary_sensor.internet_connection
+        - binary_sensor.fiber_connection
       from: 'off'
       to: 'on'
   action:
     - service: !secret notify_mobile_me
       data:
-        message: "Internet connection restored"
+        message: "Fiber connection restored"
         title: "Yay! 🎉"
 - id: notify_vigicrue
   alias: "Notify - Vigicrue"

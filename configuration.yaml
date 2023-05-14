@@ -61,16 +61,17 @@ hue:
 
 sensor:
   # Google Travel Time (trip durations)
-  - platform: google_travel_time
-    api_key: !secret google_travel_time_api_key
-    name: google_travel_time_destination_1
-    origin: !secret google_travel_time_origin_home
-    destination: !secret google_travel_time_destination_1
-    scan_interval: 900
-    options:
-      mode: driving
-      departure_time: now
-      avoid: tolls
+  # - platform: google_travel_time
+  #   api_key: !secret google_travel_time_api_key
+  #   name: google_travel_time_destination_1
+  #   origin: !secret google_travel_time_origin_home
+  #   destination: !secret google_travel_time_destination_1
+  #   scan_interval: 900
+  #   options:
+  #     mode: driving
+  #     departure_time: now
+  #     avoid: tolls
+
   # Vigicrue (flood monitoring)
   - platform: rest
     name: rest_vigicrue_hydro_observation
@@ -98,11 +99,13 @@ sensor:
   #   json_attributes:
   #     - nextTrainsList
   #   scan_interval: 60
+
   # Suez (water consumption)
   - platform: suez_water
     username: !secret suez_water_consumption_username
     password: !secret suez_water_consumption_password
     counter_id: !secret suez_water_consumption_counter_id
+
   # Raspberry Pi CPU temperature
   - platform: command_line
     name: rasp_temperature
@@ -110,6 +113,8 @@ sensor:
     value_template: '{{value | multiply(0.001) | round}}'
     scan_interval: 900
     unit_of_measurement: °C
+
+  # Internet Healthcheck
   - platform: rest
     resource: !secret healthcheck_internet_url
     name: healthcheck_internet
@@ -117,16 +122,13 @@ sensor:
     timeout: 10
     scan_interval: 30
     value_template: '{{value}}'
-  - platform: dnsip
-    name: public_ip
-    scan_interval: 120
 
 binary_sensor:
   - platform: ping
     host: !secret home_ip_addr
     count: 2
     scan_interval: 10
-    name: internet_connection
+    name: fiber_connection
 
 timer:
   dryer1:
