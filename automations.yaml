@@ -59,21 +59,21 @@
     minutes: "00"
   action:
     - service: shell_command.netatmo_ftp_clean_up
-- id: r7000_backup
-  alias: "R7000 - Backup"
-  trigger:
-    platform: time
-    at: '05:00:00'
-  condition:
-    condition: time
-    weekday:
-      - mon
-  action:
-    - service: shell_command.r7000_backup
-      data:
-        username: !secret r7000_username
-        password: !secret r7000_password
-        router_ip: !secret r7000_router_ip
+# - id: r7000_backup
+#   alias: "R7000 - Backup"
+#   trigger:
+#     platform: time
+#     at: '05:00:00'
+#   condition:
+#     condition: time
+#     weekday:
+#       - mon
+#   action:
+#     - service: shell_command.r7000_backup
+#       data:
+#         username: !secret r7000_username
+#         password: !secret r7000_password
+#         router_ip: !secret r7000_router_ip
 - id: notify_fiber_disconnection
   alias: "Notify - Fiber disconnection"
   trigger:
