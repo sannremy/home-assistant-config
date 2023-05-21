@@ -17,6 +17,8 @@
 !shell/node/package-lock.json
 !shell/node/package.json
 
+node_modules
+
 # Ignore folders.
 .storage
 .cloud
