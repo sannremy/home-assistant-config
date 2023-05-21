@@ -7,6 +7,7 @@ puppeteer.use(StealthPlugin());
   const browser = await puppeteer.launch({
     headless: 'new',
     executablePath: '/usr/bin/chromium-browser',
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
 
   // Open new tab
@@ -49,16 +50,23 @@ puppeteer.use(StealthPlugin());
 
   // Get current month and year
   const date = new Date();
-  const month = date.getMonth() + 1;
-  const year = date.getFullYear();
+  const data = []
 
-  // Get data (current month)
-  await page.goto(`https://www.toutsurmoneau.fr/mon-compte-en-ligne/statJData/${year}/${month}/${process.env.SUEZ_COUNTER_ID}`);
-  const json = await page.evaluate(() =>  {
-    return JSON.parse(document.querySelector('body').innerText);
-  });
+  for (let i = -2; i <= 0; i++) {
+    // Get data (last month)
+    date.setMonth(date.getMonth() + i);
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
 
-  console.log(json);
+    await page.goto(`https://www.toutsurmoneau.fr/mon-compte-en-ligne/statJData/${year}/${month}/${process.env.SUEZ_COUNTER_ID}`);
+    const monthData = await page.evaluate(() =>  {
+      return JSON.parse(document.querySelector('body').innerText);
+    });
+
+    data.push(monthData);
+  }
+
+  console.log(data.flat());
 
   await browser.close();
 })();
