@@ -120,8 +120,7 @@ sensor:
   # Suez (water consumption)
   - platform: command_line
     name: suez_water_consumption
-    command: !secret suez_water_consumption_command
-    command_timeout: 900
+    command: 'cat /config/shell/output/water_consumption.txt'
     scan_interval: 86400
     unit_of_measurement: L
 
@@ -148,6 +147,7 @@ shell_command:
   netatmo_ftp_clean_up: bash /config/shell/netatmo_ftp_clean_up.sh
   r7000_backup: bash /config/shell/r7000_backup.sh {{ username }} {{ password }} {{ router_ip }}
   dropbox_sync: bash /config/shell/dropbox_sync.sh / 10
+  suez_water_consumption: bash /config/shell/water_consumption.sh {{ username }} {{ password }} {{ meter_id }}
 
 group: !include groups.yaml
 automation: !include automations.yaml

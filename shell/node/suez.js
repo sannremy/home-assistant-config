@@ -58,7 +58,7 @@ puppeteer.use(StealthPlugin());
     const month = date.getMonth() + 1;
     const year = date.getFullYear();
 
-    await page.goto(`https://www.toutsurmoneau.fr/mon-compte-en-ligne/statJData/${year}/${month}/${process.env.SUEZ_COUNTER_ID}`);
+    await page.goto(`https://www.toutsurmoneau.fr/mon-compte-en-ligne/statJData/${year}/${month}/${process.env.SUEZ_METER_ID}`);
     const monthData = await page.evaluate(() =>  {
       return JSON.parse(document.querySelector('body').innerText);
     });

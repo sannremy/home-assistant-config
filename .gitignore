@@ -16,6 +16,7 @@
 !shell/node/suez.js
 !shell/node/package-lock.json
 !shell/node/package.json
+!shell/output/.gitkeep
 
 # Ignore folders.
 .storage
