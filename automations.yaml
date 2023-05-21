@@ -117,7 +117,7 @@
     - platform: time
       at: '07:00:00'
     - platform: homeassistant
-      event: start
+      event: homeassistant_started
   action:
     - service: shell_command.suez_water_consumption
       data:
