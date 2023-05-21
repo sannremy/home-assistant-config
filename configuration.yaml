@@ -121,7 +121,7 @@ sensor:
   - platform: command_line
     name: suez_water_consumption
     command: 'cat /config/shell/output/water_consumption.txt'
-    scan_interval: 86400
+    scan_interval: 900
     unit_of_measurement: L
 
 binary_sensor:
