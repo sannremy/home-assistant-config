@@ -6,6 +6,7 @@ puppeteer.use(StealthPlugin());
 (async () => {
   const browser = await puppeteer.launch({
     headless: 'new',
+    executablePath: '/usr/bin/chromium-browser',
   });
 
   // Open new tab
