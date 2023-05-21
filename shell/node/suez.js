@@ -52,9 +52,9 @@ puppeteer.use(StealthPlugin());
   const date = new Date();
   const data = []
 
-  for (let i = -2; i <= 0; i++) {
+  for (let i = 0; i < 3; i++) {
     // Get data (last month)
-    date.setMonth(date.getMonth() + i);
+    date.setMonth(date.getMonth() - i);
     const month = date.getMonth() + 1;
     const year = date.getFullYear();
 

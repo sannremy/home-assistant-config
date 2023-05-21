@@ -17,12 +17,11 @@
 !shell/node/package-lock.json
 !shell/node/package.json
 
-node_modules
-
 # Ignore folders.
 .storage
 .cloud
 .google.token
+node_modules
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
 ip_bans.yaml
