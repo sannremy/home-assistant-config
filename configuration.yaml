@@ -121,7 +121,7 @@ sensor:
   - platform: command_line
     name: suez_water_consumption
     command: 'bash /config/shell/water_consumption.sh {{ !secret suez_water_consumption_username }} {{ !secret suez_water_consumption_password }} {{ !secret suez_water_consumption_counter_id }}'
-    timeout: 3600
+    command_timeout: 3600
     scan_interval: 86400
     unit_of_measurement: L
 
