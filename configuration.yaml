@@ -100,12 +100,6 @@ sensor:
   #     - nextTrainsList
   #   scan_interval: 60
 
-  # Suez (water consumption)
-  - platform: suez_water
-    username: !secret suez_water_consumption_username
-    password: !secret suez_water_consumption_password
-    counter_id: !secret suez_water_consumption_counter_id
-
   # Raspberry Pi CPU temperature
   - platform: command_line
     name: rasp_temperature
@@ -122,6 +116,14 @@ sensor:
     timeout: 10
     scan_interval: 30
     value_template: '{{value}}'
+
+  # Suez (water consumption)
+  - platform: command_line
+    name: suez_water_consumption
+    command: 'bash /config/shell/water_consumption.sh {{ !secret suez_water_consumption_username }} {{ !secret suez_water_consumption_password }} {{ !secret suez_water_consumption_counter_id }}'
+    timeout: 3600
+    scan_interval: 86400
+    unit_of_measurement: L
 
 binary_sensor:
   - platform: ping

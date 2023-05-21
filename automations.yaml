@@ -115,7 +115,7 @@
   alias: "Notify - Suez"
   trigger:
     platform: numeric_state
-    entity_id: sensor.suez_water_client
+    entity_id: sensor.suez_water_consumption
     above: 500
   action:
     - service: !secret notify_mobile_me

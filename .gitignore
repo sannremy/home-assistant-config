@@ -12,6 +12,10 @@
 !shell/netatmo_ftp_clean_up.sh
 !shell/r7000_backup.sh
 !shell/dropbox_sync.sh
+!shell/water_consumption.sh
+!shell/node/suez.js
+!shell/node/package-lock.json
+!shell/node/package.json
 
 # Ignore folders.
 .storage
