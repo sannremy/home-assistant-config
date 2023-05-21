@@ -63,7 +63,8 @@ puppeteer.use(StealthPlugin());
       return JSON.parse(document.querySelector('body').innerText);
     });
 
-    data.push(monthData);
+    // Add month data at the beginning of the array
+    data.unshift(monthData);
   }
 
   console.log(data.flat());
