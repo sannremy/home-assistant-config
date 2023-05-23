@@ -77,7 +77,10 @@ puppeteer.use(StealthPlugin());
 
   // Find yesterday's data
   const yesterdayData = dataFlatten.find((item) => {
-    return item[0] === yesterday;
+    const [
+      date,
+    ] = item;
+    return date === yesterday;
   }) || [];
 
   const jsonObj = {
