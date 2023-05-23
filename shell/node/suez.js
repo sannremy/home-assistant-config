@@ -73,18 +73,5 @@ puppeteer.use(StealthPlugin());
   const dataFlatten = data.flat();
 
   // Write last 3 months of data
-  fs.writeFileSync('/config/shell/output/water_consumption.txt', JSON.stringify(dataFlatten));
-
-  // Date of yesterday as DD/MM/YYYY
-  const yesterday = new Date(Date.now() - 864e5).toLocaleDateString('fr-FR');
-
-  // Find yesterday's data
-  const yesterdayData = dataFlatten.find((item) => {
-    return item[0] === yesterday;
-  });
-
-  if (yesterdayData) {
-    // Write yesterday's data
-    fs.writeFileSync('/config/shell/output/water_consumption_day.txt', JSON.stringify(yesterdayData));
-  }
+  console.log(JSON.stringify(dataFlatten));
 })();

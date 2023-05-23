@@ -114,8 +114,10 @@
 - id: suez_water_consumption
   alias: "Suez - Water consumption"
   trigger:
-    platform: homeassistant
-    event: start
+    - platform: time
+      at: '07:00:00'
+    - platform: homeassistant
+      event: start
   action:
     - service: shell_command.suez_water_consumption
       data:
