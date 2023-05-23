@@ -73,14 +73,15 @@ puppeteer.use(StealthPlugin());
   const dataFlatten = data.flat();
 
   // Date of yesterday as DD/MM/YYYY
-  const yesterday = new Date(Date.now() - 864e5).toLocaleDateString('fr-FR');
+  const yesterday = new Date(Date.now() - 864e5);
+  const yesterdayString = `${String(yesterday.getDate()).padStart(2, '0')}/${String(yesterday.getMonth() + 1).padStart(2, '0')}/${yesterday.getFullYear()})}`;
 
   // Find yesterday's data
   const yesterdayData = dataFlatten.find((item) => {
     const [
       date,
     ] = item;
-    return date === yesterday;
+    return date === yesterdayString;
   }) || [];
 
   const jsonObj = {
