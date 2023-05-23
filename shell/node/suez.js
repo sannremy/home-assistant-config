@@ -72,6 +72,18 @@ puppeteer.use(StealthPlugin());
 
   const dataFlatten = data.flat();
 
-  // Write last 3 months of data
-  console.log(JSON.stringify(dataFlatten));
+  // Date of yesterday as DD/MM/YYYY
+  const yesterday = new Date(Date.now() - 864e5).toLocaleDateString('fr-FR');
+
+  // Find yesterday's data
+  const yesterdayData = dataFlatten.find((item) => {
+    return item[0] === yesterday;
+  }) || [];
+
+  const jsonObj = {
+    last3months: dataFlatten,
+    yesterday: yesterdayData,
+  }
+
+  console.log(JSON.stringify(jsonObj))
 })();
