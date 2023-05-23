@@ -120,7 +120,7 @@ sensor:
   # Suez (water consumption)
   - platform: command_line
     name: suez_water_consumption
-    command: 'cat /config/shell/output/water_consumption_day.txt'
+    command: 'cat /config/shell/output/water_consumption.txt'
     value_template: '{{value_json.yesterday[1] | multiply(1000) | round}}'
     scan_interval: 900
     unit_of_measurement: L
