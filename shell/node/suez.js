@@ -6,9 +6,8 @@ puppeteer.use(StealthPlugin());
 
 (async () => {
   const browser = await puppeteer.launch({
-    headless: 'new',
-    executablePath: '/usr/bin/chromium-browser',
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    headless: true,
+    args: ['--disable-gpu', '--no-zygote', '--no-sandbox', '--disable-setuid-sandbox'],
   });
 
   // Open new tab
