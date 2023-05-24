@@ -6,7 +6,8 @@ puppeteer.use(StealthPlugin());
 (async () => {
   const browser = await puppeteer.launch({
     headless: 'new',
-    executablePath: '/usr/bin/chromium-browser',
+    // executablePath: '/usr/bin/chromium-browser',
+    executablePath: '/usr/lib/chromium/chrome',
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
 
