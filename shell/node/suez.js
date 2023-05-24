@@ -1,4 +1,3 @@
-const fs = require('fs');
 const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 
@@ -6,7 +5,8 @@ puppeteer.use(StealthPlugin());
 
 (async () => {
   const browser = await puppeteer.launch({
-    headless: true,
+    headless: 'new',
+    executablePath: '/usr/bin/chromium-browser',
     args: ['--disable-gpu', '--no-zygote', '--no-sandbox', '--disable-setuid-sandbox'],
   });
 
