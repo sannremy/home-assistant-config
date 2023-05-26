@@ -9,14 +9,7 @@ password=$2
 meter_id=$3
 
 # Install chromium, nodejs and dependencies
-apk add -q \
-    chromium \
-    # nss \
-    # freetype \
-    # harfbuzz \
-    # ca-certificates \
-    # ttf-freefont \
-    nodejs-current npm
+apk add -q chromium nodejs-current npm
 
 # Install dependencies
 cd /config/shell/node && npm install --silent &>/dev/null
