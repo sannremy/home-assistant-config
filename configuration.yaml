@@ -148,7 +148,7 @@ shell_command:
   netatmo_ftp_clean_up: bash /config/shell/netatmo_ftp_clean_up.sh
   r7000_backup: bash /config/shell/r7000_backup.sh {{ username }} {{ password }} {{ router_ip }}
   dropbox_sync: bash /config/shell/dropbox_sync.sh / 10
-  suez_water_consumption: bash /config/shell/water_consumption.sh {{ username }} {{ password }} {{ meter_id }} &> /config/shell/output/stds.txt
+  suez_water_consumption: bash /config/shell/water_consumption.sh {{ username }} {{ password }} {{ meter_id }}
 
 group: !include groups.yaml
 automation: !include automations.yaml
