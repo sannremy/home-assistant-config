@@ -8,7 +8,7 @@ puppeteer.use(StealthPlugin());
     headless: 'new',
     // executablePath: '/usr/bin/chromium-browser',
     executablePath: '/usr/lib/chromium/chrome',
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
   });
 
   // Open new tab
