@@ -15,7 +15,7 @@ apk add -q chromium nodejs-current npm
 cd /config/shell/node && npm install --silent &>/dev/null
 
 uname -a > /config/shell/output/uname.txt
-whoami > /config/shell/output/uname.txt
-which chromium-browser > /config/shell/output/uname.txt
+whoami > /config/shell/output/whoami.txt
+which chromium-browser > /config/shell/output/chromium.txt
 
 # SUEZ_USERNAME=$username SUEZ_PASSWORD=$password SUEZ_METER_ID=$meter_id node /config/shell/node/suez.js > /config/shell/output/water_consumption.txt
