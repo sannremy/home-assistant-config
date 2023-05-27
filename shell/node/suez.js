@@ -5,15 +5,14 @@ puppeteer.use(StealthPlugin());
 
 (async () => {
   const browser = await puppeteer.launch({
-    headless: 'new',
+    headless: true,
     executablePath: '/usr/bin/chromium-browser',
     args: [
       '--no-sandbox',
       '--disable-setuid-sandbox',
-      '--disable-dev-shm-usage',
       '--headless',
       '--disable-gpu',
-      '--window-size=1920,2000',
+      '--disable-dev-shm-usage',
     ],
   });
 
