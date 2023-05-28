@@ -111,19 +111,6 @@
       data:
         message: "Vigicrue alert"
         title: "Above 1.8m 🌊"
-- id: suez_water_consumption
-  alias: "Suez - Water consumption"
-  trigger:
-    - platform: time
-      at: '07:00:00'
-    - platform: homeassistant
-      event: start
-  action:
-    - service: shell_command.suez_water_consumption
-      data:
-        username: !secret suez_water_consumption_username
-        password: !secret suez_water_consumption_password
-        meter_id: !secret suez_water_consumption_meter_id
 - id: notify_suez_water
   alias: "Notify - Suez"
   trigger:
