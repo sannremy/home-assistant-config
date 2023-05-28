@@ -9,7 +9,7 @@ password=$2
 meter_id=$3
 
 # Install chromium, nodejs and dependencies
-apk add -q udev ttf-freefont chromium nodejs-current npm
+apk add -q chromium nodejs-current npm
 
 # Install dependencies
 export CHROME_BIN="/usr/bin/chromium-browser"
