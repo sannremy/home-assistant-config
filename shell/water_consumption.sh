@@ -12,8 +12,6 @@ meter_id=$3
 apk add -q chromium nodejs-current npm
 
 # Install dependencies
-export CHROME_BIN="/usr/bin/chromium-browser"
-export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD="true"
 cd /config/shell/node && npm install --silent &>/dev/null
 
 SUEZ_USERNAME=$username SUEZ_PASSWORD=$password SUEZ_METER_ID=$meter_id node /config/shell/node/suez.js > /config/shell/output/water_consumption.txt
