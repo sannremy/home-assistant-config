@@ -10,6 +10,15 @@ views:
         entities:
           - binary_sensor.fiber_connection
         hours_to_show: 744 # 31 days
+      # Water consumption
+      - type: statistics-graph
+        title: 'Water consumption'
+        entities:
+          - sensor.suez_water_consumption
+        chart_type: bar
+        stat_types: [state]
+        days_to_show: 90
+        period: day
 
       # Dryer
       - type: entities
