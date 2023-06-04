@@ -20,6 +20,10 @@ recorder:
   include: !include history_include.yaml
 logbook:
   include: !include history_include.yaml
+zeroconf:
+ssdp:
+webhook:
+dhcp:
 
 logger:
   default: warning
@@ -28,6 +32,9 @@ logger:
 
 # Mobile app for notifications
 mobile_app:
+
+# Home Assistant "My Button" for integration redirections
+my:
 
 # Sunset and sunrise time
 sun:
