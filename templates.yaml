@@ -10,5 +10,7 @@
         {{ trigger.event.data["text"]
           | regex_findall_index("([0-9]{6})") }}
       attributes:
-        subject: trigger.event.data["subject"]
-        date: trigger.event.data["date"]
+        subject: >
+          {{ trigger.event.data["subject"] }}
+        date: >
+          {{ trigger.event.data["date"] }}
