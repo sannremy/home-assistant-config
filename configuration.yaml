@@ -20,10 +20,6 @@ recorder:
   include: !include history_include.yaml
 logbook:
   include: !include history_include.yaml
-zeroconf:
-ssdp:
-webhook:
-dhcp:
 
 logger:
   default: warning
