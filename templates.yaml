@@ -3,9 +3,12 @@
       event_type: imap_content
       id: edf_code
       event_data:
-        sender: !secret linky_username
+        sender: !secret edf_email
   sensor:
     - name: edf_code
       state: >
         {{ trigger.event.data["text"]
           | regex_findall_index("([0-9]{6})") }}
+      attributes:
+        subject: trigger.event.data["subject"]
+        date: trigger.event.data["date"]
