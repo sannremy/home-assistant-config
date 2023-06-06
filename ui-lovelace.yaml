@@ -16,9 +16,10 @@ views:
         entities:
           - sensor.suez_water_consumption
         chart_type: bar
-        stat_types: [state]
+        stat_types:
+          - state
         days_to_show: 90
-        period: day
+        period: month
 
       # Dryer
       - type: entities
