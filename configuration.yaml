@@ -120,11 +120,11 @@ binary_sensor:
 command_line:
     # Raspberry Pi CPU temperature
   - sensor:
-    name: rasp_temperature
-    command: 'cat /sys/class/thermal/thermal_zone0/temp'
-    value_template: '{{value | multiply(0.001) | round}}'
-    scan_interval: 900
-    unit_of_measurement: °C
+      name: rasp_temperature
+      command: 'cat /sys/class/thermal/thermal_zone0/temp'
+      value_template: '{{value | multiply(0.001) | round}}'
+      scan_interval: 900
+      unit_of_measurement: °C
 
 timer:
   dryer1:
