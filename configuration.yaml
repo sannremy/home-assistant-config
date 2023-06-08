@@ -101,14 +101,6 @@ sensor:
   #     - nextTrainsList
   #   scan_interval: 60
 
-  # Raspberry Pi CPU temperature
-  - platform: command_line
-    name: rasp_temperature
-    command: 'cat /sys/class/thermal/thermal_zone0/temp'
-    value_template: '{{value | multiply(0.001) | round}}'
-    scan_interval: 900
-    unit_of_measurement: °C
-
   # Internet Healthcheck
   - platform: rest
     resource: !secret healthcheck_internet_url
@@ -124,6 +116,15 @@ binary_sensor:
     count: 2
     scan_interval: 10
     name: fiber_connection
+
+command_line:
+    # Raspberry Pi CPU temperature
+  - sensor:
+    name: rasp_temperature
+    command: 'cat /sys/class/thermal/thermal_zone0/temp'
+    value_template: '{{value | multiply(0.001) | round}}'
+    scan_interval: 900
+    unit_of_measurement: °C
 
 timer:
   dryer1:
