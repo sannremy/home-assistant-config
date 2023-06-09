@@ -16,9 +16,9 @@ views:
         entities:
           - sensor.suez_water_consumption
       - type: picture-entity
-        entity: camera.netatmo_living_room
+        entity: camera.mimi_camera
       - type: picture-entity
-        entity: camera.netatmo_mimi_outdoor_camera
+        entity: camera.mimi_outdoor_camera
 
       # Dryer
       - type: entities
