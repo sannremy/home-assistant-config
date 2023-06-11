@@ -17,6 +17,7 @@ I run Home assistant on a Raspberry Pi 4 (8Gb).
 ## Alerting
 - River level above a threshold (river level data service in France).
 - Internet connections and disconnections.
+- Water consumption above a threshold per day.
 
 ## Dashboard UI
 I have created a custom UI using Home assistant API and Websockets. This code can be found here: https://github.com/sannremy/home-assistant-ui

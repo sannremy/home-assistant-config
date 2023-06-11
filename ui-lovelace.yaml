@@ -10,15 +10,6 @@ views:
         entities:
           - binary_sensor.fiber_connection
         hours_to_show: 744 # 31 days
-      # Water consumption
-      - type: energy-water-graph
-        title: 'Water consumption'
-        entities:
-          - sensor.suez_water_consumption
-      - type: picture-entity
-        entity: camera.mimi_camera
-      - type: picture-entity
-        entity: camera.mimi_outdoor_camera
 
       # Dryer
       - type: entities
@@ -29,6 +20,8 @@ views:
             name: Dryer 01:20
           - entity: timer.dryer3
             name: Dryer 03:00
+
+      # Battery levels
       - type: entities
         entities:
           - entity: sensor.netatmo_anemometer_battery_percent
@@ -45,3 +38,9 @@ views:
             name: Rain gauge
           - entity: sensor.thermostat_battery_percent_2
             name: Thermostat
+
+      # Cameras
+      - type: picture-entity
+        entity: camera.mimi_camera
+      - type: picture-entity
+        entity: camera.mimi_outdoor_camera
