@@ -39,6 +39,23 @@ views:
           - entity: sensor.thermostat_battery_percent_2
             name: Thermostat
 
+      # Stats
+      type: statistics-graph
+      title: 'Water'
+      chart_type: bar
+      entities:
+        - entity: sensor.suez_water_consumption
+          name: Consumption
+
+      type: statistics-graph
+      title: 'Power'
+      chart_type: line
+      entities:
+        - entity: sensor.edf_electricity_consumption_kwh
+          name: Consumption
+        - entity: sensor.edf_electricity_consumption_cost
+          name: Cost
+
       # Cameras
       - type: picture-entity
         entity: camera.mimi_camera
