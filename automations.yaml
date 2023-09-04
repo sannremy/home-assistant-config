@@ -158,3 +158,19 @@
       data:
         message: "Dryer ♨️"
         title: "03:00 finished"
+- id: opensky_flights
+  alias: "OpenSky - Flights"
+  trigger:
+    - platform: event
+      event_type: opensky_entry
+  action:
+    - service: !secret notify_mobile_me
+      data:
+        message: "Flight entry of {{ trigger.event.data.callsign }}"
+        data:
+          actions:
+            - action: URI
+              title: Track the flight
+              uri: >-
+                https://opensky-network.org/aircraft-profile?icao24={{
+                trigger.event.data.icao24 }}
