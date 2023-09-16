@@ -29,14 +29,14 @@ while read -r slug; do
         curl -sSL -H "Authorization: Bearer $SUPERVISOR_TOKEN" http://supervisor/backups/$slug/download -o $output
 
         # Upload file to dropbox
-        ./dropbox_uploader.sh -d -s -f $config_file upload $output $remote_backup_folder
+        ./dropbox_uploader.sh -q -s -f $config_file upload $output $remote_backup_folder
 
         # Clean up
         rm $output
     else
         # Delete file from Dropbox
         if echo $remote_list | grep -q $slug; then
-            ./dropbox_uploader.sh -d -f $config_file delete $remote_backup_folder/$slug.tar
+            ./dropbox_uploader.sh -q -f $config_file delete $remote_backup_folder/$slug.tar
         fi
 
         # Delete file from local folder
@@ -46,6 +46,13 @@ while read -r slug; do
     index=$((index+1))
 
 done <<< "$local_list"
+
+# Delete old backups from dropbox to match the number of files in local folder
+while read -r slug; do
+    if ! echo $local_list | grep -q $slug; then
+        ./dropbox_uploader.sh -q -f $config_file delete $remote_backup_folder/$slug.tar
+    fi
+done <<< "$remote_list"
 
 # Clean up
 rm dropbox_uploader.sh
