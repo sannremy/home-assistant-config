@@ -6,6 +6,7 @@
 
 # Usage:
 # ./dropbox_sync.sh remote_backup_folder keep_last
+# Note: remote_backup_folder needs a trailing slash
 
 config_file="/config/shell/.dropbox_uploader"
 remote_backup_folder=$1
@@ -36,7 +37,7 @@ while read -r slug; do
     else
         # Delete file from Dropbox
         if echo $remote_list | grep -q $slug; then
-            ./dropbox_uploader.sh -q -f $config_file delete $remote_backup_folder/$slug.tar
+            ./dropbox_uploader.sh -q -f $config_file delete $remote_backup_folder$slug.tar
         fi
 
         # Delete file from local folder
@@ -50,7 +51,7 @@ done <<< "$local_list"
 # Delete old backups from dropbox to match the number of files in local folder
 while read -r slug; do
     if ! echo $local_list | grep -q $slug; then
-        ./dropbox_uploader.sh -q -f $config_file delete $remote_backup_folder/$slug.tar
+        ./dropbox_uploader.sh -q -f $config_file delete $remote_backup_folder$slug.tar
     fi
 done <<< "$remote_list"
 
