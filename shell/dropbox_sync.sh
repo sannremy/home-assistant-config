@@ -16,7 +16,7 @@ curl -sSL "https://raw.githubusercontent.com/andreafabrizi/Dropbox-Uploader/mast
 chmod +x dropbox_uploader.sh
 
 # Compare files in dropbox and local folder
-remote_list=$(./dropbox_uploader.sh -f $config_file list $remote_backup_folder)
+remote_list=$(./dropbox_uploader.sh -f $config_file list $remote_backup_folder | awk '{print $NF}' | grep '.tar' | rev | cut -c 5- | rev)
 local_list=$(curl -sSL -H "Authorization: Bearer $SUPERVISOR_TOKEN" http://supervisor/backups | jq -r '.data.backups |= sort_by(.date)' | jq -r '[.data.backups[] | .slug] | reverse | .[]')
 
 # Upload sorted local files to dropbox (most recent files)
