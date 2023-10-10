@@ -3,3 +3,5 @@ entities:
   - sensor.rasp_temperature
   - sensor.suez_water_consumption
   - sensor.rest_vigicrue_hydro_observation
+  - sensor.edf_electricity_consumption_kwh
+  - sensor.edf_electricity_consumption_cost

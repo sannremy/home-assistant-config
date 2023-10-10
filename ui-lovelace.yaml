@@ -47,13 +47,6 @@ views:
           - entity: sensor.suez_water_consumption
             name: 'Consumption'
 
-      - type: statistics-graph
-        title: 'Water'
-        chart_type: bar
-        entities:
-          - entity: sensor.suez_water_consumption
-            name: Consumption
-
       - type: history-graph
         title: 'Power'
         hours_to_show: 720
