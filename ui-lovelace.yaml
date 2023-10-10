@@ -40,6 +40,13 @@ views:
             name: Thermostat
 
       # Stats
+      - type: history-graph
+        hours_to_show: 720
+        title: 'Water'
+        entities:
+          - entity: sensor.suez_water_consumption
+            name: 'Consumption'
+
       - type: statistics-graph
         title: 'Water'
         chart_type: bar
