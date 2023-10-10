@@ -1,7 +1,51 @@
 entities:
+  # Fiber connectivity
   - binary_sensor.fiber_connection
+
+  # Raspberry Pi temperature
   - sensor.rasp_temperature
+
+  # Water consumption
   - sensor.suez_water_consumption
+
+  # River level
   - sensor.rest_vigicrue_hydro_observation
+
+  # Electricity consumption
   - sensor.edf_electricity_consumption_kwh
   - sensor.edf_electricity_consumption_cost
+
+  # Battery levels
+  - sensor.netatmo_anemometer_battery_percent
+  - sensor.netatmo_attic_battery_percent
+  - sensor.netatmo_backyard_battery_percent
+  - sensor.netatmo_bedroom1_battery_percent
+  - sensor.netatmo_master_bedroom_battery_percent
+  - sensor.netatmo_rain_gauge_battery_percent
+  - sensor.thermostat_battery_percent_2
+
+  # CO2 levels
+  - sensor.netatmo_attic_co2
+  - sensor.netatmo_bedroom1_co2
+  - sensor.netatmo_master_bedroom_co2
+  - sensor.netatmo_living_room_co2
+  - sensor.netatmo_mimi_health_coach_co2
+
+  # Humidity levels
+  - sensor.netatmo_attic_humidity
+  - sensor.netatmo_bedroom1_humidity
+  - sensor.netatmo_master_bedroom_humidity
+  - sensor.netatmo_living_room_humidity
+  - sensor.netatmo_mimi_health_coach_humidity
+  - sensor.netatmo_backyard_humidity
+
+  # Temperature levels
+  - sensor.netatmo_attic_temperature
+  - sensor.netatmo_bedroom1_temperature
+  - sensor.netatmo_master_bedroom_temperature
+  - sensor.netatmo_living_room_temperature
+  - sensor.netatmo_mimi_health_coach_temperature
+
+  # Pressure levels
+  - sensor.netatmo_living_room_pressure
+  - sensor.netatmo_mimi_health_coach_pressure

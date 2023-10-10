@@ -56,6 +56,55 @@ views:
           - entity: sensor.edf_electricity_consumption_cost
             name: 'Cost'
 
+      - type: history-graph
+        title: 'Temperature'
+        hours_to_show: 48
+        entities:
+          - entity: sensor.netatmo_attic_temperature
+            name: 'Attic'
+          - entity: sensor.netatmo_bedroom1_temperature
+            name: 'Child 1 bedroom'
+          - entity: sensor.netatmo_master_bedroom_temperature
+            name: 'Child 2 bedroom'
+          - entity: sensor.netatmo_living_room_temperature
+            name: 'Living room'
+          - entity: sensor.netatmo_mimi_health_coach_temperature
+            name: 'Master bedroom'
+
+      - type: history-graph
+        title: 'CO2'
+        hours_to_show: 48
+        entities:
+          - entity: sensor.netatmo_attic_co2
+            name: 'Attic'
+          - entity: sensor.netatmo_bedroom1_co2
+            name: 'Child 1 bedroom'
+          - entity: sensor.netatmo_master_bedroom_co2
+            name: 'Child 2 bedroom'
+          - entity: sensor.netatmo_living_room_co2
+            name: 'Living room'
+          - entity: sensor.netatmo_mimi_health_coach_co2
+            name: 'Master bedroom'
+
+      - type: history-graph
+        title: 'Battery'
+        hours_to_show: 720
+        entities:
+          - entity: sensor.netatmo_attic_battery_percent
+            name: 'Attic'
+          - entity: sensor.netatmo_bedroom1_battery_percent
+            name: 'Child 1 bedroom'
+          - entity: sensor.netatmo_master_bedroom_battery_percent
+            name: 'Child 2 bedroom'
+          - entity: sensor.netatmo_anemometer_battery_percent
+            name: 'Anemometer'
+          - entity: sensor.netatmo_backyard_battery_percent
+            name: 'Backyard'
+          - entity: sensor.netatmo_rain_gauge_battery_percent
+            name: 'Rain gauge'
+          - entity: sensor.thermostat_battery_percent_2
+            name: 'Themostat'
+
       # Cameras
       - type: picture-entity
         entity: camera.mimi_camera
