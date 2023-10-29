@@ -56,6 +56,20 @@ views:
           - entity: sensor.edf_electricity_consumption_cost
             name: 'Cost'
 
+      - type: statistics-graph
+        title: 'Electricity'
+        days_to_show: 30
+        chart_type: bar
+        stat_types:
+          - change
+        period: day
+        hide_legend: true
+        entities:
+          - entity: sensor.edf_electricity_consumption_kwh
+            name: 'Consumption'
+          - entity: sensor.edf_electricity_consumption_cost
+            name: 'Cost'
+
       - type: history-graph
         title: 'Gas'
         hours_to_show: 720
