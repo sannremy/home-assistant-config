@@ -40,9 +40,13 @@ views:
             name: Thermostat
 
       # Stats
-      - type: history-graph
-        hours_to_show: 720
-        title: 'Water'
+      - type: statistics-graph
+        title: 'Water consumption'
+        days_to_show: 30
+        chart_type: bar
+        stat_types:
+          - state
+        period: day
         entities:
           - entity: sensor.suez_water_consumption
             name: 'Consumption'
@@ -57,18 +61,16 @@ views:
             name: 'Cost'
 
       - type: statistics-graph
-        title: 'Electricity'
+        title: 'Electricity consumption'
         days_to_show: 30
         chart_type: bar
         stat_types:
-          - change
+          - state
         period: day
         hide_legend: true
         entities:
           - entity: sensor.edf_electricity_consumption_kwh
             name: 'Consumption'
-          - entity: sensor.edf_electricity_consumption_cost
-            name: 'Cost'
 
       - type: history-graph
         title: 'Gas'
