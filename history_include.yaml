@@ -15,6 +15,10 @@ entities:
   - sensor.edf_electricity_consumption_kwh
   - sensor.edf_electricity_consumption_cost
 
+  # Gas consumption
+  - sensor.edf_gas_consumption_kwh
+  - sensor.edf_gas_consumption_cost
+
   # Battery levels
   - sensor.netatmo_anemometer_battery_percent
   - sensor.netatmo_attic_battery_percent
