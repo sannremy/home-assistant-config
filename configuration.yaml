@@ -110,12 +110,12 @@ sensor:
     scan_interval: 30
     value_template: '{{value}}'
 
-binary_sensor:
-  - platform: ping
-    host: !secret home_ip_addr
-    count: 2
-    scan_interval: 10
-    name: fiber_connection
+# binary_sensor:
+#   - platform: ping
+#     host: !secret home_ip_addr
+#     count: 2
+#     scan_interval: 10
+#     name: fiber_connection
 
 command_line:
     # Raspberry Pi CPU temperature
