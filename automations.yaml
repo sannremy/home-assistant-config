@@ -158,6 +158,17 @@
       data:
         message: "Dryer ♨️"
         title: "03:00 finished"
+- id: aqara_dryer1_pressed
+  alias: "Button - Dryer 1 pressed"
+  trigger:
+    - platform: event
+      event_type: zha_event
+      event_data:
+        device_id: 4a935d6fdf67c4b4ee185ebe93011d77
+  action:
+    - service: timer.start
+      target:
+        entity_id: timer.dryer1
 # - id: opensky_flights_enter
 #   alias: "OpenSky - Flights enter"
 #   trigger:
