@@ -158,34 +158,20 @@
       data:
         message: "Dryer ♨️"
         title: "03:00 finished"
-- id: aqara_dryer_pressed
-  alias: "Button - Dryer pressed"
+- id: aqara_dryer2_pressed
+  alias: "Button - Dryer 2 pressed"
   trigger:
     - platform: event
       event_type: zha_event
       event_data:
         device_id: 4a935d6fdf67c4b4ee185ebe93011d77
+  condition:
+    - condition: template
+      value_template: '{{ trigger.event.data.command == "double" }}'
   action:
-    - choose:
-      - conditions:
-        - condition: template
-          value_template: '{{ trigger.event.data.command == "single" }}'
-        sequence:
-          - service: timer.start
-            target:
-              entity_id: timer.dryer2
-        - condition: template
-            value_template: '{{ trigger.event.data.command == "double" }}'
-          sequence:
-            - service: timer.start
-              target:
-                entity_id: timer.dryer1
-        - condition: template
-            value_template: '{{ trigger.event.data.command == "hold" }}'
-          sequence:
-            - service: timer.start
-              target:
-                entity_id: timer.dryer3
+    - service: timer.start
+      target:
+        entity_id: timer.dryer2
 
 # - id: opensky_flights_enter
 #   alias: "OpenSky - Flights enter"
