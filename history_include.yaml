@@ -27,6 +27,7 @@ entities:
   - sensor.netatmo_master_bedroom_battery_percent
   - sensor.netatmo_rain_gauge_battery_percent
   - sensor.thermostat_battery_percent_2
+  - sensor.aqara_mini_switch_battery
 
   # CO2 levels
   - sensor.netatmo_attic_co2

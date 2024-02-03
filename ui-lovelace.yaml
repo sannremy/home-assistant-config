@@ -38,6 +38,8 @@ views:
             name: Rain gauge
           - entity: sensor.thermostat_battery_percent_2
             name: Thermostat
+          - entity: sensor.aqara_mini_switch_battery
+            name: Aqaara mini switch
 
       # Stats
       - type: history-graph
@@ -55,28 +57,6 @@ views:
             name: 'Consumption'
           - entity: sensor.edf_electricity_consumption_cost
             name: 'Cost'
-
-      - type: statistics-graph
-        title: 'Electricity consumption'
-        days_to_show: 30
-        chart_type: bar
-        stat_types:
-          - state
-        period: day
-        entities:
-          - entity: sensor.edf_electricity_consumption_kwh
-            name: 'Consumption'
-
-      - type: statistics-graph
-        title: 'Water consumption'
-        days_to_show: 30
-        chart_type: bar
-        stat_types:
-          - state
-        period: day
-        entities:
-          - entity: sensor.suez_water_consumption
-            name: 'Consumption'
 
       - type: history-graph
         title: 'Gas'
