@@ -145,7 +145,7 @@
     - service: !secret notify_mobile_me
       data:
         message: "Dryer ♨️"
-        title: "01:20 finished"
+        title: "01:05 finished"
 - id: notify_dryer3_finished
   alias: "Notify - Dryer 3 finished"
   trigger:
@@ -157,7 +157,7 @@
     - service: !secret notify_mobile_me
       data:
         message: "Dryer ♨️"
-        title: "03:00 finished"
+        title: "02:00 finished"
 - id: aqara_dryer1_pressed
   alias: "Button - Dryer 1 pressed"
   trigger:

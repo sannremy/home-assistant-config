@@ -17,9 +17,9 @@ views:
           - entity: timer.dryer1
             name: Dryer 00:45
           - entity: timer.dryer2
-            name: Dryer 01:20
+            name: Dryer 01:05
           - entity: timer.dryer3
-            name: Dryer 03:00
+            name: Dryer 02:00
 
       # Battery levels
       - type: entities
