@@ -50,6 +50,7 @@ entities:
   - sensor.netatmo_master_bedroom_temperature
   - sensor.netatmo_living_room_temperature
   - sensor.netatmo_mimi_health_coach_temperature
+  - sensor.netatmo_backyard_temperature
 
   # Pressure levels
   - sensor.netatmo_living_room_pressure

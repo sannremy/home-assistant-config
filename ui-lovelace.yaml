@@ -81,6 +81,8 @@ views:
             name: 'Living room'
           - entity: sensor.netatmo_mimi_health_coach_temperature
             name: 'Master bedroom'
+          - entity: sensor.netatmo_backyard_temperature
+            name: 'Backyard'
 
       - type: history-graph
         title: 'CO2'
