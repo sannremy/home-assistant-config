@@ -39,7 +39,7 @@ views:
           - entity: sensor.thermostat_battery_percent_2
             name: Thermostat
           - entity: sensor.aqara_mini_switch_battery
-            name: Aqaara mini switch
+            name: Aqara mini switch
 
       # Stats
       - type: history-graph
