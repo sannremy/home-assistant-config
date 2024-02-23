@@ -119,7 +119,7 @@ views:
             name: 'Themostat'
 
       - type: history-graph
-        title: 'Humidity'
+        title: 'Rain and river level'
         hours_to_show: 72
         entities:
           - entity: sensor.rest_vigicrue_hydro_observation
