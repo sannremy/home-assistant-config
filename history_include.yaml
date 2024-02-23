@@ -11,6 +11,9 @@ entities:
   # River level
   - sensor.rest_vigicrue_hydro_observation
 
+  # Rain gauge
+  - sensor.netatmo_rain_gauge_rain
+
   # Electricity consumption
   - sensor.edf_electricity_consumption_kwh
   - sensor.edf_electricity_consumption_cost

@@ -118,6 +118,15 @@ views:
           - entity: sensor.thermostat_battery_percent_2
             name: 'Themostat'
 
+      - type: history-graph
+        title: 'Humidity'
+        hours_to_show: 72
+        entities:
+          - entity: sensor.rest_vigicrue_hydro_observation
+            name: 'River level'
+          - entity: sensor.netatmo_rain_gauge_rain
+            name: 'Rain gauge'
+
       # Cameras
       - type: picture-entity
         entity: camera.mimi_camera
