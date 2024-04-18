@@ -143,6 +143,24 @@ shell_command:
   r7000_backup: bash /config/shell/r7000_backup.sh {{ username }} {{ password }} {{ router_ip }}
   dropbox_sync: bash /config/shell/dropbox_sync.sh / 10
 
+rest:
+  - resource_template: https://particulier.edf.fr/services/rest/referentiel/searchTempoStore?dateRelevant={{now().strftime("%Y-%m-%d")}}
+    scan_interval: 3600
+    sensor:
+      - name: "Tempo - Tomorrow"
+        value_template: "{{ value_json.couleurJourJ1 }}"
+      - name: "Tempo - Today"
+        value_template: "{{ value_json.couleurJourJ }}"
+  - resource: https://particulier.edf.fr/services/rest/referentiel/getNbTempoDays?TypeAlerte=TEMPO
+    scan_interval: 3600
+    sensor:
+      - name: "Remaining Rouge days"
+        value_template: "{{ value_json.PARAM_NB_J_ROUGE }}"
+      - name: "Remaining Blanc days"
+        value_template: "{{ value_json.PARAM_NB_J_BLANC }}"
+      - name: "Remaining Bleu days"
+        value_template: "{{ value_json.PARAM_NB_J_BLEU }}"
+
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
