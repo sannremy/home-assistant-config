@@ -200,6 +200,16 @@
     - service: timer.start
       target:
         entity_id: timer.dryer3
+- id: notify_edf_tempo
+  alias: "Notify - EDF Tempo"
+  trigger:
+    platform: state
+    entity_id: sensor.tempo_tomorrow
+  action:
+    - service: !secret notify_mobile_me
+      data:
+        message: "EDF Tempo - Tomorrow"
+        title: "{{ sensor.tempo_tomorrow }} ⚡"
 
 # - id: opensky_flights_enter
 #   alias: "OpenSky - Flights enter"
