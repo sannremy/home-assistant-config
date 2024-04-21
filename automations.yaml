@@ -211,8 +211,8 @@
   action:
     - service: !secret notify_mobile_me
       data:
-        message: "EDF Tempo - {{ now().strftime('%A') }}"
-        title: "{{ states('sensor.tempo_tomorrow') }} ⚡"
+        message: "EDF Tempo - Tomorrow"
+        title: "{{ states('sensor.tempo_tomorrow')|replace('TEMPO_', '')|capitalize }} ⚡"
 
 # - id: opensky_flights_enter
 #   alias: "OpenSky - Flights enter"
