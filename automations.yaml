@@ -205,10 +205,13 @@
   trigger:
     - platform: state
       entity_id: sensor.tempo_tomorrow
+  condition:
+    - condition: template
+      value_template: '{{ states("sensor.tempo_tomorrow") != "NON_DEFINI" }}'
   action:
     - service: !secret notify_mobile_me
       data:
-        message: "EDF Tempo - Tomorrow"
+        message: "EDF Tempo - {{ now().strftime('%A') }}"
         title: "{{ states('sensor.tempo_tomorrow') }} ⚡"
 
 # - id: opensky_flights_enter
