@@ -209,7 +209,16 @@
     - service: !secret notify_mobile_me
       data:
         message: "EDF Tempo - Tomorrow"
-        title: "{{ states('sensor.tempo_tomorrow') }} ⚡"
+        title: >
+          {% if is_state('sensor.tempo_tomorrow', 'TEMPO_BLEU') %}
+            Bleu 🔵
+          {% else if is_state('sensor.tempo_tomorrow', 'TEMPO_BLANC') %}
+            Blanc ⚪
+          {% else if is_state('sensor.tempo_tomorrow', 'TEMPO_ROUGE') %}
+            Rouge 🔴
+          {% else %}
+            {{ states('sensor.tempo_tomorrow') }}
+          {% endif %}
 
 # - id: opensky_flights_enter
 #   alias: "OpenSky - Flights enter"
