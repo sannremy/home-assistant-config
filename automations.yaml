@@ -203,8 +203,8 @@
 - id: notify_edf_tempo
   alias: "Notify - EDF Tempo"
   trigger:
-    platform: state
-    entity_id: sensor.tempo_tomorrow
+    - platform: state
+      entity_id: sensor.tempo_tomorrow
   action:
     - service: !secret notify_mobile_me
       data:
