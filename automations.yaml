@@ -209,7 +209,7 @@
     - service: !secret notify_mobile_me
       data:
         message: "EDF Tempo - Tomorrow"
-        title: "{{ sensor.tempo_tomorrow }} ⚡"
+        title: "{{ states('sensor.tempo_tomorrow') }} ⚡"
 
 # - id: opensky_flights_enter
 #   alias: "OpenSky - Flights enter"
