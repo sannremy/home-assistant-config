@@ -21,6 +21,20 @@ views:
           - entity: timer.dryer3
             name: Dryer 02:00
 
+      # EDF Tempo
+      - type: entities
+        entities:
+          - entity: sensor.tempo_today
+            name: Today
+          - entity: sensor.tempo_tomorrow
+            name: Tomorrow
+          - entity: sensor.remaining_bleu_days
+            name: Bleu remaining
+          - entity: sensor.remaining_blanc_days
+            name: Blanc remaining
+          - entity: sensor.remaining_rouge_days
+            name: Rouge remaining
+
       # Battery levels
       - type: entities
         entities:
