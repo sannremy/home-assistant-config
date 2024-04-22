@@ -26,14 +26,19 @@ views:
         entities:
           - entity: sensor.tempo_today
             name: Today
+            icon: mdi:home-lightning-bolt
           - entity: sensor.tempo_tomorrow
             name: Tomorrow
+            icon: mdi:home-lightning-bolt-outline
           - entity: sensor.remaining_bleu_days
             name: Bleu remaining
+            icon: mdi:calendar-multiselect
           - entity: sensor.remaining_blanc_days
             name: Blanc remaining
+            icon: mdi:calendar-multiselect
           - entity: sensor.remaining_rouge_days
             name: Rouge remaining
+            icon: mdi:calendar-multiselect
 
       # Battery levels
       - type: entities
