@@ -64,7 +64,6 @@ views:
       - type: history-graph
         title: 'Water'
         hours_to_show: 720
-        logarithmic_scale: true
         entities:
           - entity: sensor.suez_water_consumption
             name: 'Consumption'
@@ -72,7 +71,6 @@ views:
       - type: history-graph
         title: 'Electricity'
         hours_to_show: 720
-        logarithmic_scale: true
         entities:
           - entity: sensor.edf_electricity_consumption_kwh
             name: 'Consumption'
@@ -82,7 +80,6 @@ views:
       - type: history-graph
         title: 'Gas'
         hours_to_show: 720
-        logarithmic_scale: true
         entities:
           - entity: sensor.edf_gas_consumption_kwh
             name: 'Consumption'
