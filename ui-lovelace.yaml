@@ -9,7 +9,7 @@ views:
         title: 'Fiber connectivity'
         entities:
           - binary_sensor.fiber_connection
-        hours_to_show: 744 # 31 days
+        hours_to_show: 504 # 3 weeks
 
       # Dryer
       - type: entities
