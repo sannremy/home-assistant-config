@@ -110,13 +110,6 @@ sensor:
     scan_interval: 30
     value_template: '{{value}}'
 
-binary_sensor:
-  - platform: ping
-    host: !secret home_ip_addr
-    count: 2
-    scan_interval: 10
-    name: fiber_connection
-
 command_line:
     # Raspberry Pi CPU temperature
   - sensor:
@@ -143,6 +136,7 @@ shell_command:
   r7000_backup: bash /config/shell/r7000_backup.sh {{ username }} {{ password }} {{ router_ip }}
   dropbox_sync: bash /config/shell/dropbox_sync.sh / 10
 
+# Doesn't work anymore
 # rest:
 #   - resource_template: https://particulier.edf.fr/services/rest/referentiel/searchTempoStore?dateRelevant={{now().strftime("%Y-%m-%d")}}
 #     scan_interval: 3600
