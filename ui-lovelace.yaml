@@ -104,6 +104,23 @@ views:
             name: 'Backyard'
 
       - type: history-graph
+        title: 'Humidity'
+        hours_to_show: 48
+        entities:
+          - entity: sensor.netatmo_attic_humidity
+            name: 'Attic'
+          - entity: sensor.netatmo_bedroom1_humidity
+            name: 'Child 1 bedroom'
+          - entity: sensor.netatmo_master_bedroom_humidity
+            name: 'Child 2 bedroom'
+          - entity: sensor.netatmo_living_room_humidity
+            name: 'Living room'
+          - entity: sensor.netatmo_mimi_health_coach_humidity
+            name: 'Master bedroom'
+          - entity: sensor.netatmo_backyard_humidity
+            name: 'Backyard'
+
+      - type: history-graph
         title: 'CO2'
         hours_to_show: 48
         entities:
