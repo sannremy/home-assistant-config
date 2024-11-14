@@ -36,6 +36,9 @@
           - core_git_pull
           - a0d7b954_ftp
           - core_mariadb
+          - local-suez-tout-sur-mon-eau
+          - local-edf-tempo
+          - local-edf-electricity
         folders:
           - homeassistant
           - addons/local
