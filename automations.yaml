@@ -35,6 +35,7 @@
           - core_ssh
           - core_git_pull
           - a0d7b954_ftp
+          - core_mariadb
         folders:
           - homeassistant
           - addons/local
