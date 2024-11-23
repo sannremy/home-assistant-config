@@ -69,22 +69,19 @@ views:
             name: 'Consumption'
 
       - type: history-graph
-        title: 'Electricity'
+        title: 'Energy'
         hours_to_show: 720
         entities:
+          - entity: sensor.tempo_today
+            name: 'Tempo color'
           - entity: sensor.edf_electricity_consumption_kwh
-            name: 'Consumption'
+            name: 'Electricity consumption'
+            - entity: sensor.edf_gas_consumption_kwh
+            name: 'Gas consumption'
           - entity: sensor.edf_electricity_consumption_cost
-            name: 'Cost'
-
-      - type: history-graph
-        title: 'Gas'
-        hours_to_show: 720
-        entities:
-          - entity: sensor.edf_gas_consumption_kwh
-            name: 'Consumption'
+            name: 'Electricity cost'
           - entity: sensor.edf_gas_consumption_cost
-            name: 'Cost'
+            name: 'Gas cost'
 
       - type: history-graph
         title: 'Temperature'

@@ -14,6 +14,9 @@ entities:
   # Rain gauge
   - sensor.netatmo_rain_gauge_rain
 
+  # EDF Tempo
+  - sensor.tempo_today
+
   # Electricity consumption
   - sensor.edf_electricity_consumption_kwh
   - sensor.edf_electricity_consumption_cost
