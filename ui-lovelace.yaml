@@ -76,7 +76,7 @@ views:
             name: 'Tempo color'
           - entity: sensor.edf_electricity_consumption_kwh
             name: 'Electricity consumption'
-            - entity: sensor.edf_gas_consumption_kwh
+          - entity: sensor.edf_gas_consumption_kwh
             name: 'Gas consumption'
           - entity: sensor.edf_electricity_consumption_cost
             name: 'Electricity cost'
