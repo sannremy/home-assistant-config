@@ -109,7 +109,7 @@
   trigger:
     platform: numeric_state
     entity_id: sensor.rest_vigicrue_hydro_observation
-    above: 1.8
+    above: 2.0
   action:
     - service: !secret notify_mobile_me
       data:
