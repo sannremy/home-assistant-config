@@ -216,31 +216,12 @@
       data:
         message: "EDF Tempo - Tomorrow"
         title: "{{ states('sensor.tempo_tomorrow')|replace('TEMPO_', '')|capitalize }} ⚡"
-
-# - id: opensky_flights_enter
-#   alias: "OpenSky - Flights enter"
-#   trigger:
-#     - platform: event
-#       event_type: opensky_entry
-#   action:
-#     # Create a new state with callsign as the entity_id
-#     - service: homeassistant.set_state
-#       data_template:
-#         entity_id: "sensor.opensky_{{ trigger.event.data.callsign }}"
-#         state: "{{ trigger.event.data.callsign }}"
-#         attributes:
-#           icao24: "{{ trigger.event.data.icao24 }}"
-#           callsign: "{{ trigger.event.data.callsign }}"
-#           longitude: "{{ trigger.event.data.longitude }}"
-#           latitude: "{{ trigger.event.data.latitude }}"
-#           altitude: "{{ trigger.event.data.altitude }}"
-# - id: opensky_flights_leave
-#   alias: "OpenSky - Flights leave"
-#   trigger:
-#     - platform: event
-#       event_type: opensky_exit
-#   action:
-#     # Remove state with callsign
-#     - service: homeassistant.remove_state
-#       data_template:
-#         entity_id: "sensor.opensky_{{ trigger.event.data.callsign }}"
+- id: toggle_light_bulb
+  alias: "Light - Toggle light bulb"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.mini_pir_sensor_motion
+  action:
+    - service: "light.turn_{{ trigger.to_state.state }}"
+      target:
+        entity_id: light.light_bulb_zigbee_light
