@@ -216,12 +216,36 @@
       data:
         message: "EDF Tempo - Tomorrow"
         title: "{{ states('sensor.tempo_tomorrow')|replace('TEMPO_', '')|capitalize }} ⚡"
-- id: toggle_light_bulb
-  alias: "Light - Toggle light bulb"
+# - id: toggle_light_bulb
+#   alias: "Light - Toggle light bulb"
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.mini_pir_sensor_motion
+#   action:
+#     - service: "light.turn_{{ trigger.to_state.state }}"
+#       target:
+#         entity_id: light.light_bulb_zigbee_light
+- id: notify_letter_box_opened
+  alias: "Notify - Letter box opened"
   trigger:
     - platform: state
       entity_id: binary_sensor.mini_pir_sensor_motion
+      from: 'off'
+      to: 'on'
   action:
-    - service: "light.turn_{{ trigger.to_state.state }}"
-      target:
-        entity_id: light.light_bulb_zigbee_light
+    - service: !secret notify_mobile_me
+      data:
+        message: "Letter box opened"
+        title: "✉️ opened"
+- id: notify_letter_box_closed
+  alias: "Notify - Letter box closed"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.mini_pir_sensor_motion
+      from: 'on'
+      to: 'off'
+  action:
+    - service: !secret notify_mobile_me
+      data:
+        message: "Letter box closed"
+        title: "✉️ closed"
