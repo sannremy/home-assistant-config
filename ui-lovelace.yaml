@@ -165,3 +165,10 @@ views:
         entity: camera.mimi_camera
       - type: picture-entity
         entity: camera.mimi_outdoor_camera
+
+      # Letter box
+      - type: logbook
+        title: 'Letter box'
+        entities:
+          - binary_sensor.mini_pir_sensor_motion
+        hours_to_show: 504 # 3 weeks

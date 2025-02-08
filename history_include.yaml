@@ -34,6 +34,7 @@ entities:
   - sensor.netatmo_rain_gauge_battery_percent
   - sensor.thermostat_battery_percent_2
   - sensor.aqara_mini_switch_battery
+  - sensor.mini_pir_sensor_battery
 
   # CO2 levels
   - sensor.netatmo_attic_co2
@@ -61,3 +62,6 @@ entities:
   # Pressure levels
   - sensor.netatmo_living_room_pressure
   - sensor.netatmo_mimi_health_coach_pressure
+
+  # Letter box
+  - binary_sensor.mini_pir_sensor_motion
