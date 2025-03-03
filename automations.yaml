@@ -253,12 +253,29 @@
   alias: "EDF Tempo - Start addon"
   trigger:
     - platform: time_pattern
-      minutes: '/10'
-  condition:
-    - condition: time
-      after: '00:00:01'
-      before: '12:30:00'
+      hours: '0-11/11' # 00:05, 11:05
+      minutes: '05'
   action:
     - service: hassio.addon_start
       data:
         addon: local_edf-tempo
+- id: start_edf_electricity
+  alias: "EDF Electricity - Start addon"
+  trigger:
+    - platform: time_pattern
+      hours: "22"
+      minutes: "10"
+  action:
+    - service: hassio.addon_start
+      data:
+        addon: local_edf-electricity
+- id: start_suez_water
+  alias: "Suez Water - Start addon"
+  trigger:
+    - platform: time_pattern
+      hours: "22"
+      minutes: "20"
+  action:
+    - service: hassio.addon_start
+      data:
+        addon: local_suez_tout_sur_mon_eau
