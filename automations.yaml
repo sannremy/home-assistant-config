@@ -256,22 +256,9 @@
       minutes: '/10'
   condition:
     - condition: time
-      after: '23:00:00'
-      before: '13:00:00'
+      after: '00:00:01'
+      before: '12:30:00'
   action:
     - service: hassio.addon_start
       data:
-        addon: local-edf-tempo
-- id: stop_edf_tempo_addon
-  alias: "EDF Tempo - Stop addon"
-  trigger:
-    - platform: time_pattern
-      minutes: '/10'
-  condition:
-    - condition: time
-      after: '23:05:00'
-      before: '13:15:00'
-  action:
-    - service: hassio.addon_stop
-      data:
-        addon: local-edf-tempo
+        addon: local_edf-tempo
