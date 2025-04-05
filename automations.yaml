@@ -253,7 +253,7 @@
   alias: "EDF Tempo - Start addon"
   trigger:
     - platform: time_pattern
-      hours: '01-13/2' # 1:05, 3:05, 5:05, 7:05, 9:05, 11:05, 13:05
+      hours: '01-13' # 1:05, 3:05, 5:05, 7:05, 9:05, 11:05, 13:05
       minutes: '05'
   action:
     - service: hassio.addon_start
