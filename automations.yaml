@@ -1,22 +1,3 @@
-- id: update_morning_commute_sensor
-  alias: "Commute - Update morning commute sensor"
-  trigger:
-    - platform: time_pattern
-      minutes: '/5'
-  condition:
-    - condition: time
-      after: '07:00:00'
-      before: '09:00:00'
-    - condition: time
-      weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
-  action:
-    - service: homeassistant.update_entity
-      entity_id: sensor.google_travel_time_destination_1
 - id: create_weekly_backup
   alias: "Backup - Create snapshot weekly"
   trigger:
@@ -63,21 +44,6 @@
     minutes: "00"
   action:
     - service: shell_command.netatmo_ftp_clean_up
-# - id: r7000_backup
-#   alias: "R7000 - Backup"
-#   trigger:
-#     platform: time
-#     at: '05:00:00'
-#   condition:
-#     condition: time
-#     weekday:
-#       - mon
-#   action:
-#     - service: shell_command.r7000_backup
-#       data:
-#         username: !secret r7000_username
-#         password: !secret r7000_password
-#         router_ip: !secret r7000_router_ip
 - id: notify_fiber_disconnection
   alias: "Notify - Fiber disconnection"
   trigger:

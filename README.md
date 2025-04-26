@@ -3,7 +3,6 @@
 I run Home assistant on a Raspberry Pi 4 (8Gb).
 
 ## Backup
-- Netgear router R7000 config to internal FTP.
 - Netatmo video files to internal FTP.
 - Home assistant config files to Dropbox.
 

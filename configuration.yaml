@@ -41,38 +41,7 @@ lovelace:
 # System health report
 system_health:
 
-# Philips Hue
-# hue:
-#   bridges:
-#     - host: !secret hue_host
-#       allow_hue_groups: false
-#       allow_unreachable: true
-
-# Wait for implementation on RPi + sniffing codes (https://github.com/ninjablocks/433Utils)
-# switch:
-#   - platform: rpi_rf
-#     gpio: 0 # todo
-#     switches:
-#       outlet_1:
-#         code_on: 11111 # todo
-#         code_off: 00000 # todo
-#       outlet_2:
-#         code_on: 11111 # todo
-#         code_off: 00000 # todo
-
 sensor:
-  # Google Travel Time (trip durations)
-  # - platform: google_travel_time
-  #   api_key: !secret google_travel_time_api_key
-  #   name: google_travel_time_destination_1
-  #   origin: !secret google_travel_time_origin_home
-  #   destination: !secret google_travel_time_destination_1
-  #   scan_interval: 900
-  #   options:
-  #     mode: driving
-  #     departure_time: now
-  #     avoid: tolls
-
   # Vigicrue (flood monitoring)
   - platform: rest
     name: rest_vigicrue_hydro_observation
@@ -87,19 +56,6 @@ sensor:
     state_class: measurement
     unit_of_measurement: m
     device_class: distance
-
-  # Transilien (trains)
-  # - platform: rest
-  #   name: rest_transilien_search
-  #   resource: !secret rest_transilien_search_url
-  #   method: !secret rest_transilien_search_method
-  #   payload: !secret rest_transilien_search_payload
-  #   headers:
-  #     Content-Type: application/json
-  #   value_template: '{{value_json.nextTrainsList[0].departureTime}}'
-  #   json_attributes:
-  #     - nextTrainsList
-  #   scan_interval: 60
 
   # Internet Healthcheck
   - platform: rest
@@ -133,7 +89,6 @@ timer:
 # Shell commands
 shell_command:
   netatmo_ftp_clean_up: bash /config/shell/netatmo_ftp_clean_up.sh
-  r7000_backup: bash /config/shell/r7000_backup.sh {{ username }} {{ password }} {{ router_ip }}
   dropbox_sync: bash /config/shell/dropbox_sync.sh / 10
 
 group: !include groups.yaml
