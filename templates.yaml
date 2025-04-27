@@ -1,9 +1,10 @@
 - trigger:
-    - platform: event
-      event_type: imap_content
-      id: edf_code
+    - trigger: event
+      event_type: "imap_content"
+      id: "edf_code"
       event_data:
         sender: !secret edf_email
+        initial: true
   sensor:
     - name: edf_code
       state: >
