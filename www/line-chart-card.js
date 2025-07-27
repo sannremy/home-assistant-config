@@ -22,21 +22,24 @@ class LineChartCard extends HTMLElement {
     // this.content.innerHTML = `
     //   The state of ${entityId} is ${stateStr}!
     // `;
-
-    this.chart?.destroy();
-    this.chart = new Chart(this.canvas, {
-      type: 'line',
-      data: {
-        labels: Array.from({ length: 7 }, (_, i) => `Day ${i + 1}`), // Example labels
-        datasets: [{
-          label: entityId,
-          data: [65, 59, 80, 81, 56, 55, 40],
-          fill: false,
-          borderColor: 'rgb(75, 192, 192)',
-          tension: 0.1
-        }],
-      }
-    });
+    
+    if (Chart) {
+      this.chart?.destroy();
+      this.chart = new Chart(this.canvas, {
+        data: {
+          datasets: [{
+            type: 'bar',
+            label: 'Bar Dataset',
+            data: [10, 20, 30, 40]
+          }, {
+            type: 'line',
+            label: 'Line Dataset',
+            data: [50, 60, 70, 60],
+          }],
+          labels: Array.from({ length: 4 }, (_, i) => `Day ${i + 1}`), // Example labels
+        },
+      });
+    }
   }
 
   // The user supplied configuration. Throw an exception and Home Assistant
