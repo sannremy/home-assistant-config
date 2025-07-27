@@ -15,16 +15,10 @@ class ChartCard extends HTMLElement {
       this.canvas = this.querySelector("canvas");
     }
 
-    const datasets = this.config.datasets || [];
-    const labels = this.config.labels || [];
-    // const state = hass.states[entityId];
-    // const stateStr = state ? state.state : "unavailable";
-
-    // this.content.innerHTML = `
-    //   The state of ${entityId} is ${stateStr}!
-    // `;
+    const datasets = hass.states[this.config.entity]?.attributes?.chart_datasets || [];
+    const labels = hass.states[this.config.entity]?.attributes?.chart_labels || [];
     
-    if (Chart) {
+    if (Chart && datasets.length > 0 && labels.length > 0) {
       this.chart?.destroy();
       this.chart = new Chart(this.canvas, {
         data: {
@@ -37,18 +31,16 @@ class ChartCard extends HTMLElement {
           labels,
         },
       });
+    } else {
+      this.content.innerHTML = `No data available for entity ${this.config.entity}. Please ensure it has the correct attributes.`;
     }
   }
 
   // The user supplied configuration. Throw an exception and Home Assistant
   // will render an error card.
   setConfig(config) {
-    if (!config.datasets) {
-      throw new Error("You need to define an array of datasets (type, label, data).");
-    }
-
-    if (!config.labels) {
-      throw new Error("You need to define an array of labels.");
+    if (!config.entity) {
+      throw new Error("You need to define an entity.");
     }
 
     this.config = config;

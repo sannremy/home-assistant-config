@@ -181,14 +181,7 @@ views:
           - binary_sensor.mini_pir_sensor_motion
         hours_to_show: 504 # 3 weeks
 
-      # Electricity consumption (WIP)
+      # Suez water (WIP)
       - type: "custom:chart-card"
-        title: 'Electricity Consumption (WIP)'
-        labels: [1, 2, 3, 4]
-        datasets:
-          - type: line
-            label: 'EDF Electricity Consumption'
-            data: [50, 60, 70, 80]
-          - type: bar
-            label: 'EDF Gas Consumption'
-            data: [30, 40, 50, 60]
+        title: 'Suez water (WIP)'
+        entity: sensor.suez_water_consumption
