@@ -3,7 +3,7 @@ title: !secret home_name
 resources:
   - url: "https://cdn.jsdelivr.net/npm/chart.js@4.5.0"
     type: js
-  - url: /local/line-chart-card.js
+  - url: /local/chart-card.js
     type: module
 
 views:
@@ -182,7 +182,7 @@ views:
         hours_to_show: 504 # 3 weeks
 
       # Electricity consumption (WIP)
-      - type: "custom:line-chart-card"
+      - type: "custom:chart-card"
         title: 'Electricity Consumption (WIP)'
         labels: [1, 2, 3, 4]
         datasets:

@@ -1,11 +1,11 @@
-class LineChartCard extends HTMLElement {
+class ChartCard extends HTMLElement {
   // Whenever the state changes, a new `hass` object is set. Use this to
   // update your content.
   set hass(hass) {
     // Initialize the content if it's not there yet.
     if (!this.content) {
       this.innerHTML = `
-        <ha-card header="${this.config.title || 'Line Chart Card'}">
+        <ha-card header="${this.config.title || 'Chart Card'}">
           <div class="card-content">
             <canvas></canvas>
           </div>
@@ -71,4 +71,4 @@ class LineChartCard extends HTMLElement {
   }
 }
 
-customElements.define("line-chart-card", LineChartCard);
+customElements.define("chart-card", ChartCard);
