@@ -6,7 +6,6 @@ class LineChartCard extends HTMLElement {
     if (!this.content) {
       this.innerHTML = `
         <ha-card header="${this.config.title || 'Line Chart Card'}">
-          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
           <div class="card-content">
             <canvas></canvas>
           </div>
