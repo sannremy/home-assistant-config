@@ -16,11 +16,8 @@ class ChartCard extends HTMLElement {
     }
 
     const datasets = hass.states[this.config.entity]?.attributes?.chart_datasets || [];
-    const labels = hass.states[this.config.entity]?.attributes?.chart_labels || [];
 
-    console.log(JSON.stringify(hass.states[this.config.entity], null, 2));
-
-    if (Chart && datasets.length > 0 && labels.length > 0) {
+    if (Chart && datasets.length > 0) {
       this.chart?.destroy();
       this.chart = new Chart(this.canvas, {
         data: {
@@ -30,8 +27,25 @@ class ChartCard extends HTMLElement {
             data: [],
             ...dataset
           })),
-          labels,
         },
+        options: {
+          scales: {
+            x: {
+              type: 'time',
+              time: {
+                unit: 'day', // Adjust the time unit as needed
+                tooltipFormat: 'MMM D, YYYY',
+                displayFormats: {
+                  day: 'MMM D',
+                },
+              },
+              title: {
+                display: true,
+                text: 'Date',
+              },
+            },
+          },
+        }
       });
     } else {
       this.content.innerHTML = `No data available for entity ${this.config.entity}. Please ensure it has the correct attributes.`;
