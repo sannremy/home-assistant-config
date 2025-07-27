@@ -3,6 +3,10 @@ title: !secret home_name
 resources:
   - url: "https://cdn.jsdelivr.net/npm/chart.js@4.5.0"
     type: js
+  - url: "https://cdn.jsdelivr.net/npm/date-fns@4.1.0"
+    type: js
+  - url: "https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0"
+    type: js
   - url: /local/chart-card.js
     type: module
 
