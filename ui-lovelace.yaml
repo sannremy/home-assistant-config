@@ -1,5 +1,9 @@
 title: !secret home_name
 
+resources:
+  - url: /local/line-chart-card.js
+    type: module
+
 views:
   - title: !secret home_name
     id: home_view
@@ -174,3 +178,8 @@ views:
         entities:
           - binary_sensor.mini_pir_sensor_motion
         hours_to_show: 504 # 3 weeks
+
+      # Electricity consumption (WIP)
+      - type: "custom:line-chart-card"
+        title: 'Electricity Consumption (WIP)'
+        entity: sensor.edf_electricity_consumption_kwh
