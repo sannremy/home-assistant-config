@@ -23,6 +23,7 @@ class LineChartCard extends HTMLElement {
     //   The state of ${entityId} is ${stateStr}!
     // `;
 
+    this.chart?.destroy();
     this.chart = new Chart(this.canvas, {
       type: 'line',
       data: {
