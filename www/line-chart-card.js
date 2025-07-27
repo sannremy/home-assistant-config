@@ -26,7 +26,7 @@ class LineChartCard extends HTMLElement {
     this.chart = new Chart(this.canvas, {
       type: 'line',
       data: {
-        labels: Utils.months({count: 7}),
+        labels: Array.from({ length: 7 }, (_, i) => `Day ${i + 1}`), // Example labels
         datasets: [{
           label: entityId,
           data: [65, 59, 80, 81, 56, 55, 40],
