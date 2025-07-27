@@ -17,7 +17,9 @@ class ChartCard extends HTMLElement {
 
     const datasets = hass.states[this.config.entity]?.attributes?.chart_datasets || [];
     const labels = hass.states[this.config.entity]?.attributes?.chart_labels || [];
-    
+
+    console.log(JSON.stringify(hass.states[this.config.entity], null, 2));
+
     if (Chart && datasets.length > 0 && labels.length > 0) {
       this.chart?.destroy();
       this.chart = new Chart(this.canvas, {
