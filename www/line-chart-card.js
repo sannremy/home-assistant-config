@@ -6,19 +6,37 @@ class LineChartCard extends HTMLElement {
     if (!this.content) {
       this.innerHTML = `
         <ha-card header="${this.config.title || 'Line Chart Card'}">
-          <div class="card-content"></div>
+          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+          <div class="card-content">
+            <canvas></canvas>
+          </div>
         </ha-card>
       `;
       this.content = this.querySelector("div");
+      this.canvas = this.querySelector("canvas");
     }
 
     const entityId = this.config.entity;
-    const state = hass.states[entityId];
-    const stateStr = state ? state.state : "unavailable";
+    // const state = hass.states[entityId];
+    // const stateStr = state ? state.state : "unavailable";
 
-    this.content.innerHTML = `
-      The state of ${entityId} is ${stateStr}!
-    `;
+    // this.content.innerHTML = `
+    //   The state of ${entityId} is ${stateStr}!
+    // `;
+
+    this.chart = new Chart(this.canvas, {
+      type: 'line',
+      data: {
+        labels: Utils.months({count: 7}),
+        datasets: [{
+          label: entityId,
+          data: [65, 59, 80, 81, 56, 55, 40],
+          fill: false,
+          borderColor: 'rgb(75, 192, 192)',
+          tension: 0.1
+        }],
+      }
+    });
   }
 
   // The user supplied configuration. Throw an exception and Home Assistant
