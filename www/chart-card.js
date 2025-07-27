@@ -34,14 +34,6 @@ class ChartCard extends HTMLElement {
               type: 'time',
               time: {
                 unit: 'day', // Adjust the time unit as needed
-                tooltipFormat: 'MMM D, YYYY',
-                displayFormats: {
-                  day: 'MMM D',
-                },
-              },
-              title: {
-                display: true,
-                text: 'Date',
               },
             },
           },
