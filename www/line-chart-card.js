@@ -15,7 +15,8 @@ class LineChartCard extends HTMLElement {
       this.canvas = this.querySelector("canvas");
     }
 
-    const entityId = this.config.entity;
+    const datasets = this.config.datasets || [];
+    const labels = this.config.labels || [];
     // const state = hass.states[entityId];
     // const stateStr = state ? state.state : "unavailable";
 
@@ -27,16 +28,13 @@ class LineChartCard extends HTMLElement {
       this.chart?.destroy();
       this.chart = new Chart(this.canvas, {
         data: {
-          datasets: [{
-            type: 'bar',
-            label: 'Bar Dataset',
-            data: [10, 20, 30, 40]
-          }, {
-            type: 'line',
-            label: 'Line Dataset',
-            data: [50, 60, 70, 60],
-          }],
-          labels: Array.from({ length: 4 }, (_, i) => `Day ${i + 1}`), // Example labels
+          datasets: datasets.map(dataset => ({
+            type: 'line', // Default to line if type is not specified
+            label: 'Dataset',
+            data: [],
+            ...dataset
+          })),
+          labels,
         },
       });
     }
@@ -45,9 +43,14 @@ class LineChartCard extends HTMLElement {
   // The user supplied configuration. Throw an exception and Home Assistant
   // will render an error card.
   setConfig(config) {
-    if (!config.entity) {
-      throw new Error("You need to define an entity");
+    if (!config.datasets) {
+      throw new Error("You need to define an array of datasets (type, label, data).");
     }
+
+    if (!config.labels) {
+      throw new Error("You need to define an array of labels.");
+    }
+
     this.config = config;
   }
 
