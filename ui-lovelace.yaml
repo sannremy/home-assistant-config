@@ -76,20 +76,15 @@ views:
         title: 'Suez water'
         entity: sensor.suez_water_consumption
 
-      - type: history-graph
-        title: 'Energy'
-        hours_to_show: 720
-        entities:
-          - entity: sensor.tempo_today
-            name: 'Tempo color'
-          - entity: sensor.edf_electricity_consumption_kwh
-            name: 'Electricity consumption'
-          - entity: sensor.edf_gas_consumption_kwh
-            name: 'Gas consumption'
-          - entity: sensor.edf_electricity_consumption_cost
-            name: 'Electricity cost'
-          - entity: sensor.edf_gas_consumption_cost
-            name: 'Gas cost'
+      # Electricity
+      - type: "custom:chart-card"
+        title: 'Electricity'
+        entity: sensor.edf_electricity_consumption_kwh
+
+      # Gas
+      - type: "custom:chart-card"
+        title: 'Gas'
+        entity: sensor.edf_gas_consumption_kwh
 
       - type: history-graph
         title: 'Temperature'
