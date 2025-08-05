@@ -57,16 +57,16 @@ class ChartCard extends HTMLElement {
   // The height of your card. Home Assistant uses this to automatically
   // distribute all cards over the available columns in masonry view
   getCardSize() {
-    return 3;
+    return 6;
   }
 
   // The rules for sizing your card in the grid in sections view
   getGridOptions() {
     return {
-      rows: 3,
+      rows: 6,
       columns: 6,
-      min_rows: 3,
-      max_rows: 3,
+      min_rows: 6,
+      max_rows: 6,
     };
   }
 }
