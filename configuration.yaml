@@ -91,6 +91,14 @@ shell_command:
   netatmo_ftp_clean_up: bash /config/shell/netatmo_ftp_clean_up.sh
   dropbox_sync: bash /config/shell/dropbox_sync.sh / 10
 
+# REST commands
+rest_command:
+  aircraft_info:
+    url: "https://opensky-network.org/api/flights/aircraft?icao24={{ icao24 }}&begin={{ (now() - timedelta(minutes=30)).timestamp() }}&end={{ now().timestamp() }}"
+    username: !secret rest_command_aircraft_info_username
+    password: !secret rest_command_aircraft_info_password
+    content_type: 'application/json; charset=utf-8'
+
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml

@@ -244,3 +244,13 @@
     - service: hassio.addon_start
       data:
         addon: local_suez_tout_sur_mon_eau
+- id: find_aircraft
+  alias: "Find Aircraft"
+  trigger:
+    - platform: event
+      event_type: opensky_entry
+  action:
+    - service: rest_command.aircraft_info
+      data:
+        icao24: "{{ trigger.event.data.icao24 }}"
+        callsign: "{{ trigger.event.data.callsign }}"
