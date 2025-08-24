@@ -65,3 +65,6 @@ entities:
 
   # Letter box
   - binary_sensor.mini_pir_sensor_motion
+
+  # OpenSky Network
+  - sensor.opensky_2
