@@ -66,6 +66,16 @@ sensor:
     scan_interval: 30
     value_template: '{{value}}'
 
+  - platform: rest
+    resource: "https://opensky-network.org/api/flights/aircraft?icao24={{ icao24 }}&begin={{ (now() - timedelta(minutes=30)).timestamp() | round }}&end={{ now().timestamp() | round }}"
+    name: aircraft_info
+    method: GET
+    username: !secret rest_command_aircraft_info_username
+    password: !secret rest_command_aircraft_info_password
+    authentication: basic
+    scan_interval: 86400
+    value_template: '{{ value_json }}'
+
 command_line:
     # Raspberry Pi CPU temperature
   - sensor:
@@ -90,14 +100,6 @@ timer:
 shell_command:
   netatmo_ftp_clean_up: bash /config/shell/netatmo_ftp_clean_up.sh
   dropbox_sync: bash /config/shell/dropbox_sync.sh / 10
-
-# REST commands
-rest_command:
-  aircraft_info:
-    url: "https://opensky-network.org/api/flights/aircraft?icao24={{ icao24 }}&begin={{ (now() - timedelta(minutes=30)).timestamp() | round }}&end={{ now().timestamp() | round }}"
-    username: !secret rest_command_aircraft_info_username
-    password: !secret rest_command_aircraft_info_password
-    content_type: 'application/json; charset=utf-8'
 
 group: !include groups.yaml
 automation: !include automations.yaml
