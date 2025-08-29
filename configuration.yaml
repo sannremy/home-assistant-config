@@ -74,7 +74,7 @@ sensor:
     password: !secret rest_command_aircraft_info_password
     authentication: basic
     scan_interval: 86400
-    value_template: '{{ value_json }}'
+    value_template: '{{ value_json[0].estArrivalAirport }}'
 
 command_line:
     # Raspberry Pi CPU temperature
