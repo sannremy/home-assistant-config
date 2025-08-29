@@ -1,10 +1,11 @@
-- trigger:
-    - trigger: event
-      event_type: "imap_content"
-      id: "edf_code"
-      event_data:
-        sender: !secret edf_email
-        initial: true
+- triggers:
+  # EDF code
+  - trigger: event
+    event_type: "imap_content"
+    id: "edf_code"
+    event_data:
+      sender: !secret edf_email
+      initial: true
   sensor:
     - name: edf_code
       state: >
@@ -15,3 +16,11 @@
           {{ trigger.event.data["subject"] }}
         date: >
           {{ trigger.event.data["date"] }}
+
+  # Opensky
+  - trigger: event
+      event_type: "opensky_entry"
+  sensor:
+    - name: aircraft_icao24
+        state: >
+          {{ trigger.event.data["icao24"] }}
