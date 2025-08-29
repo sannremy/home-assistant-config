@@ -1,3 +1,4 @@
+# EDF
 - triggers:
     - trigger: event
       event_type: "imap_content"
@@ -15,10 +16,10 @@
           {{ trigger.event.data["subject"] }}
         date: >
           {{ trigger.event.data["date"] }}
+# Opensky
 - triggers:
-  # Opensky
     - trigger: event
-        event_type: "opensky_entry"
+      event_type: "opensky_entry"
   sensor:
     - name: aircraft_icao24
         state: >
