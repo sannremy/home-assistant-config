@@ -94,7 +94,7 @@ shell_command:
 # REST commands
 rest_command:
   aircraft_info:
-    url: "https://opensky-network.org/api/flights/aircraft?icao24={{ icao24 }}&begin={{ (now() - timedelta(minutes=30)).timestamp() }}&end={{ now().timestamp() }}"
+    url: "https://opensky-network.org/api/flights/aircraft?icao24={{ icao24 }}&begin={{ (now() - timedelta(minutes=30)).timestamp() | round }}&end={{ now().timestamp() | round }}"
     username: !secret rest_command_aircraft_info_username
     password: !secret rest_command_aircraft_info_password
     content_type: 'application/json; charset=utf-8'
