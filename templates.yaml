@@ -22,5 +22,5 @@
       event_type: "opensky_entry"
   sensor:
     - name: aircraft_icao24
-        state: >
-          {{ trigger.event.data["icao24"] }}
+      state: >
+        {{ trigger.event.data["icao24"] }}
