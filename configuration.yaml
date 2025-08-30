@@ -67,7 +67,10 @@ sensor:
     value_template: '{{value}}'
 
   - platform: rest
-    resource_template: "https://www.flightaware.com/live/flight/{{ states('sensor.aircraft_callsign') }}"
+    resource_template: >-
+      {% if states('sensor.aircraft_callsign') != "unknown" %}
+        https://www.flightaware.com/live/flight/{{ states('sensor.aircraft_callsign') }}
+      {% endif %}
     name: aircraft_info
     method: GET
     scan_interval: 86400
