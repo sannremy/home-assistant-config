@@ -72,7 +72,7 @@ sensor:
     method: GET
     scan_interval: 86400
     value_template: >-
-      {% set trackpoll_match = value | regex_findall('var trackpollBootstrap = ({.*?});', multiline=true) %}
+      {% set trackpoll_match = value | regex_findall('var trackpollBootstrap = ({.*?});') %}
       {% if trackpoll_match %}
         {% set trackpoll_data = trackpoll_match[0] | from_json %}
         {% set flights = trackpoll_data.flights %}
