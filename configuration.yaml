@@ -77,7 +77,7 @@ sensor:
     json_attributes:
       - dateApplication
       - statut
-    value: na
+    value_template: "{{ now().strftime('%Y-%m-%d %H:%M:%S') }}"
 
   - platform: rest
     resource_template: >-
@@ -90,7 +90,7 @@ sensor:
       - typeJourEff
       - nombreJours
       - nombreJoursTires
-    value: na
+    value_template: "{{ now().strftime('%Y-%m-%d %H:%M:%S') }}"
 
   # Aircraft info
   - platform: rest
