@@ -111,9 +111,9 @@ sensor:
           {% if first_flight_key %}
             {% set first_flight = flights[first_flight_key] %}
             {% if first_flight.activityLog and first_flight.activityLog.flights %}
-              {{ first_flight.activityLog.flights[0].destination.friendlyName }}
+              {{ (first_flight.activityLog.flights[0].destination | to_json).friendlyName }}
             {% elif first_flight.destination %}
-              {{ first_flight.destination.friendlyName }}
+              {{ (first_flight.destination | to_json).friendlyName }}
             {% else %}
               null
             {% endif %}
