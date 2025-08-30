@@ -66,6 +66,24 @@ sensor:
     scan_interval: 30
     value_template: '{{value}}'
 
+  # EDF tempo
+  - platform: rest
+    resource_template: >-
+      https://api-commerce.edf.fr/commerce/activet/v1/calendrier-jours-effacement?option=TEMPO&dateApplicationBorneInf={{ now().strftime('%Y-%m-%d') }}&dateApplicationBorneSup={{ (now() + timedelta(days=1)).strftime('%Y-%m-%d') }}&identifiantConsommateur=src
+    name: edf_tempo_now
+    method: GET
+    scan_interval: 300
+    value_template: '{{ value_json }}'
+  
+  - platform: rest
+    resource_template: >-
+      https://api-commerce.edf.fr/commerce/activet/v1/saisons/search?option=TEMPO&dateReference={{ now().strftime('%Y-%m-%d') }}
+    name: edf_tempo_days
+    method: GET
+    scan_interval: 300
+    value_template: '{{ value_json }}'
+
+  # Aircraft info
   - platform: rest
     resource_template: >-
       {% if states('sensor.aircraft_callsign') != "unknown" %}

@@ -215,15 +215,15 @@
       data:
         message: "Letter box closed"
         title: "✉️ closed"
-- id: start_edf_tempo_addon
-  alias: "EDF Tempo - Start addon"
-  trigger:
-    - platform: time_pattern
-      minutes: '05'
-  action:
-    - service: hassio.addon_start
-      data:
-        addon: local_edf-tempo
+# - id: start_edf_tempo_addon
+#   alias: "EDF Tempo - Start addon"
+#   trigger:
+#     - platform: time_pattern
+#       minutes: '05'
+#   action:
+#     - service: hassio.addon_start
+#       data:
+#         addon: local_edf-tempo
 - id: start_edf_electricity
   alias: "EDF Electricity - Start addon"
   trigger:
