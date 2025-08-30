@@ -24,3 +24,6 @@
     - name: aircraft_icao24
       state: >
         {{ trigger.event.data["icao24"] }}
+    - name: aircraft_callsign
+      state: >
+        {{ trigger.event.data["callsign"] }}

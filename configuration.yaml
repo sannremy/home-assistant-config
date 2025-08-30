@@ -67,14 +67,35 @@ sensor:
     value_template: '{{value}}'
 
   - platform: rest
-    resource_template: "https://opensky-network.org/api/flights/aircraft?icao24={{ states('sensor.aircraft_icao24') }}&begin={{ (now() - timedelta(minutes=30)).timestamp() | round }}&end={{ now().timestamp() | round }}"
+    resource_template: "https://www.flightaware.com/live/flight/{{ states('sensor.aircraft_callsign') }}"
     name: aircraft_info
     method: GET
-    username: !secret rest_command_aircraft_info_username
-    password: !secret rest_command_aircraft_info_password
-    authentication: basic
     scan_interval: 86400
-    value_template: '{{ value_json[0].estArrivalAirport }}'
+    value_template: >-
+      {% set trackpoll_match = value | regex_findall('var trackpollBootstrap = ({.*?});', multiline=true) %}
+      {% if trackpoll_match %}
+        {% set trackpoll_data = trackpoll_match[0] | from_json %}
+        {% set flights = trackpoll_data.flights %}
+        {% if flights %}
+          {% set first_flight_key = flights.keys() | list | first %}
+          {% if first_flight_key %}
+            {% set first_flight = flights[first_flight_key] %}
+            {% if first_flight.activityLog and first_flight.activityLog.flights %}
+              {{ first_flight.activityLog.flights[0].destination | to_json }}
+            {% elif first_flight.destination %}
+              {{ first_flight.destination | to_json }}
+            {% else %}
+              null
+            {% endif %}
+          {% else %}
+            null
+          {% endif %}
+        {% else %}
+          null
+        {% endif %}
+      {% else %}
+        null
+      {% endif %}
 
 command_line:
     # Raspberry Pi CPU temperature
