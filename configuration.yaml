@@ -111,20 +111,46 @@ sensor:
           {% if first_flight_key %}
             {% set first_flight = flights[first_flight_key] %}
             {% if first_flight.activityLog and first_flight.activityLog.flights %}
-              {{ (first_flight.activityLog.flights[0].destination | to_json).friendlyName }}
+              {{ first_flight.activityLog.flights[0].destination.friendlyLocation if first_flight.activityLog.flights[0].destination.friendlyLocation else "Unknown" }}
             {% elif first_flight.destination %}
-              {{ (first_flight.destination | to_json).friendlyName }}
+              {{ first_flight.destination.friendlyLocation if first_flight.destination.friendlyLocation else "Unknown" }}
             {% else %}
-              null
+              "Unknown"
             {% endif %}
           {% else %}
-            null
+            "Unknown"
           {% endif %}
         {% else %}
-          null
+          "Unknown"
         {% endif %}
       {% else %}
-        null
+        "Unknown"
+      {% endif %}
+    json_attributes_path: "$"
+    json_attributes_template: >-
+      {% set trackpoll_match = value | regex_findall('var trackpollBootstrap = ({.*?});') %}
+      {% if trackpoll_match %}
+        {% set trackpoll_data = trackpoll_match[0] | from_json %}
+        {% set flights = trackpoll_data.flights %}
+        {% if flights %}
+          {% set first_flight_key = flights.keys() | list | first %}
+          {% if first_flight_key %}
+            {% set first_flight = flights[first_flight_key] %}
+            {% if first_flight.activityLog and first_flight.activityLog.flights %}
+              {{ {"destination": first_flight.activityLog.flights[0].destination} | to_json }}
+            {% elif first_flight.destination %}
+              {{ {"destination": first_flight.destination} | to_json }}
+            {% else %}
+              {{ {"destination": null} | to_json }}
+            {% endif %}
+          {% else %}
+            {{ {"destination": null} | to_json }}
+          {% endif %}
+        {% else %}
+          {{ {"destination": null} | to_json }}
+        {% endif %}
+      {% else %}
+        {{ {"destination": null} | to_json }}
       {% endif %}
 
 command_line:
