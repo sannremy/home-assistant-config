@@ -16,6 +16,186 @@
           {{ trigger.event.data["subject"] }}
         date: >
           {{ trigger.event.data["date"] }}
+
+# EDF TEMPO - Individual color sensors
+- sensor:
+    - name: tempo_rouge_info
+      state: >
+        {% set content = state_attr('sensor.edf_tempo_days', 'content') %}
+        {% if content %}
+          {% for item in content %}
+            {% if item.typeJourEff == 'TEMPO_ROUGE' %}
+              {{ item.nombreJoursTires }} / {{ item.nombreJours }}
+            {% endif %}
+          {% endfor %}
+        {% else %}
+          unavailable
+        {% endif %}
+      attributes:
+        typeJourEff: >
+          {% set content = state_attr('sensor.edf_tempo_days', 'content') %}
+          {% if content %}
+            {% for item in content %}
+              {% if item.typeJourEff == 'TEMPO_ROUGE' %}
+                {{ item.typeJourEff }}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        nombreJours: >
+          {% set content = state_attr('sensor.edf_tempo_days', 'content') %}
+          {% if content %}
+            {% for item in content %}
+              {% if item.typeJourEff == 'TEMPO_ROUGE' %}
+                {{ item.nombreJours }}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        nombreJoursTires: >
+          {% set content = state_attr('sensor.edf_tempo_days', 'content') %}
+          {% if content %}
+            {% for item in content %}
+              {% if item.typeJourEff == 'TEMPO_ROUGE' %}
+                {{ item.nombreJoursTires }}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        libelle: >
+          {% set content = state_attr('sensor.edf_tempo_days', 'content') %}
+          {% if content %}
+            {% for item in content %}
+              {% if item.typeJourEff == 'TEMPO_ROUGE' %}
+                {{ item.libelle }}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        etat: >
+          {% set content = state_attr('sensor.edf_tempo_days', 'content') %}
+          {% if content %}
+            {% for item in content %}
+              {% if item.typeJourEff == 'TEMPO_ROUGE' %}
+                {{ item.etat }}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+
+    - name: tempo_blanc_info
+      state: >
+        {% set content = state_attr('sensor.edf_tempo_days', 'content') %}
+        {% if content %}
+          {% for item in content %}
+            {% if item.typeJourEff == 'TEMPO_BLANC' %}
+              {{ item.nombreJoursTires }} / {{ item.nombreJours }}
+            {% endif %}
+          {% endfor %}
+        {% else %}
+          unavailable
+        {% endif %}
+      attributes:
+        typeJourEff: >
+          {% set content = state_attr('sensor.edf_tempo_days', 'content') %}
+          {% if content %}
+            {% for item in content %}
+              {% if item.typeJourEff == 'TEMPO_BLANC' %}
+                {{ item.typeJourEff }}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        nombreJours: >
+          {% set content = state_attr('sensor.edf_tempo_days', 'content') %}
+          {% if content %}
+            {% for item in content %}
+              {% if item.typeJourEff == 'TEMPO_BLANC' %}
+                {{ item.nombreJours }}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        nombreJoursTires: >
+          {% set content = state_attr('sensor.edf_tempo_days', 'content') %}
+          {% if content %}
+            {% for item in content %}
+              {% if item.typeJourEff == 'TEMPO_BLANC' %}
+                {{ item.nombreJoursTires }}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        libelle: >
+          {% set content = state_attr('sensor.edf_tempo_days', 'content') %}
+          {% if content %}
+            {% for item in content %}
+              {% if item.typeJourEff == 'TEMPO_BLANC' %}
+                {{ item.libelle }}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        etat: >
+          {% set content = state_attr('sensor.edf_tempo_days', 'content') %}
+          {% if content %}
+            {% for item in content %}
+              {% if item.typeJourEff == 'TEMPO_BLANC' %}
+                {{ item.etat }}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+
+    - name: tempo_bleu_info
+      state: >
+        {% set content = state_attr('sensor.edf_tempo_days', 'content') %}
+        {% if content %}
+          {% for item in content %}
+            {% if item.typeJourEff == 'TEMPO_BLEU' %}
+              {{ item.nombreJoursTires }} / {{ item.nombreJours }}
+            {% endif %}
+          {% endfor %}
+        {% else %}
+          unavailable
+        {% endif %}
+      attributes:
+        typeJourEff: >
+          {% set content = state_attr('sensor.edf_tempo_days', 'content') %}
+          {% if content %}
+            {% for item in content %}
+              {% if item.typeJourEff == 'TEMPO_BLEU' %}
+                {{ item.typeJourEff }}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        nombreJours: >
+          {% set content = state_attr('sensor.edf_tempo_days', 'content') %}
+          {% if content %}
+            {% for item in content %}
+              {% if item.typeJourEff == 'TEMPO_BLEU' %}
+                {{ item.nombreJours }}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        nombreJoursTires: >
+          {% set content = state_attr('sensor.edf_tempo_days', 'content') %}
+          {% if content %}
+            {% for item in content %}
+              {% if item.typeJourEff == 'TEMPO_BLEU' %}
+                {{ item.nombreJoursTires }}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        libelle: >
+          {% set content = state_attr('sensor.edf_tempo_days', 'content') %}
+          {% if content %}
+            {% for item in content %}
+              {% if item.typeJourEff == 'TEMPO_BLEU' %}
+                {{ item.libelle }}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        etat: >
+          {% set content = state_attr('sensor.edf_tempo_days', 'content') %}
+          {% if content %}
+            {% for item in content %}
+              {% if item.typeJourEff == 'TEMPO_BLEU' %}
+                {{ item.etat }}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+
 # Opensky
 - triggers:
     - trigger: event

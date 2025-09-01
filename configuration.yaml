@@ -77,7 +77,11 @@ sensor:
     json_attributes:
       - dateApplication
       - statut
-    value_template: "{{ now().strftime('%Y-%m-%d %H:%M:%S') }}"
+    value_template: >-
+      {% set today = now().strftime('%Y-%m-%d') %}
+      {% set calendrier = value_json.content.options[0].calendrier %}
+      {% set today_entry = calendrier | selectattr('dateApplication', 'equalto', today) | first %}
+      {{ today_entry.statut if today_entry else 'UNKNOWN' }}
 
   - platform: rest
     resource_template: >-
@@ -88,8 +92,14 @@ sensor:
     json_attributes_path: "$.content"
     json_attributes:
       - typeJourEff
+      - libelle
       - nombreJours
+      - premierJour
+      - dernierJour
+      - premierJourExclu
+      - dernierJourExclu
       - nombreJoursTires
+      - etat
     value_template: "{{ now().strftime('%Y-%m-%d %H:%M:%S') }}"
 
   # Aircraft info
