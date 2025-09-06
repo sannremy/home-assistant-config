@@ -66,42 +66,6 @@ sensor:
     scan_interval: 30
     value_template: '{{value}}'
 
-  # EDF tempo
-  - platform: rest
-    resource_template: >-
-      https://api-commerce.edf.fr/commerce/activet/v1/calendrier-jours-effacement?option=TEMPO&dateApplicationBorneInf={{ now().strftime('%Y-%m-%d') }}&dateApplicationBorneSup={{ (now() + timedelta(days=1)).strftime('%Y-%m-%d') }}&identifiantConsommateur=src
-    name: edf_tempo_now
-    method: GET
-    scan_interval: 300
-    json_attributes_path: "$.content.options[0].calendrier"
-    json_attributes:
-      - dateApplication
-      - statut
-    value_template: >-
-      {% set today = now().strftime('%Y-%m-%d') %}
-      {% set calendrier = value_json.content.options[0].calendrier %}
-      {% set today_entry = calendrier | selectattr('dateApplication', 'equalto', today) | first %}
-      {{ today_entry.statut if today_entry else 'UNKNOWN' }}
-
-  - platform: rest
-    resource_template: >-
-      https://api-commerce.edf.fr/commerce/activet/v1/saisons/search?option=TEMPO&dateReference={{ now().strftime('%Y-%m-%d') }}
-    name: edf_tempo_days
-    method: GET
-    scan_interval: 300
-    json_attributes_path: "$.content"
-    json_attributes:
-      - typeJourEff
-      - libelle
-      - nombreJours
-      - premierJour
-      - dernierJour
-      - premierJourExclu
-      - dernierJourExclu
-      - nombreJoursTires
-      - etat
-    value_template: "{{ now().strftime('%Y-%m-%d %H:%M:%S') }}"
-
   # Aircraft info
   - platform: rest
     resource_template: >-
