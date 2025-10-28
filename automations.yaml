@@ -228,8 +228,8 @@
   alias: "EDF Electricity - Start addon"
   trigger:
     - platform: time_pattern
-      hours: "22"
-      minutes: "10"
+      hours: "21"
+      minutes: "17"
   action:
     - service: hassio.addon_start
       data:
@@ -239,7 +239,7 @@
   trigger:
     - platform: time_pattern
       hours: "22"
-      minutes: "20"
+      minutes: "02"
   action:
     - service: hassio.addon_start
       data:
