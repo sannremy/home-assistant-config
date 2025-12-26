@@ -263,14 +263,14 @@
       target:
          entity_id: camera.sonnette
       data:
-        filename: "/share/netatmo/snapshots/sonnette_{{ now().strftime('%Y%m%d-%H%M%S') }}.jpg"
+        filename: "/share/netatmo/snapshots/sonnette/sonnette_{{ now().strftime('%Y%m%d-%H%M%S') }}.jpg"
     - action: camera.snapshot
       target:
          entity_id: camera.mimi_outdoor_camera
       data:
-        filename: "/share/netatmo/snapshots/backyard_{{ now().strftime('%Y%m%d-%H%M%S') }}.jpg"
+        filename: "/share/netatmo/snapshots/backyard/backyard_{{ now().strftime('%Y%m%d-%H%M%S') }}.jpg"
     - action: camera.snapshot
       target:
          entity_id: camera.mimi_camera
       data:
-        filename: "/share/netatmo/snapshots/home_{{ now().strftime('%Y%m%d-%H%M%S') }}.jpg"
+        filename: "/share/netatmo/snapshots/home/home_{{ now().strftime('%Y%m%d-%H%M%S') }}.jpg"
