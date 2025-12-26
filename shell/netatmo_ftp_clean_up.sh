@@ -20,6 +20,9 @@ function remove_old_files () {
     else
         clean_up_empty_folders
     fi
+
+    # Remove files older than 2 days in snapshots folder
+    find /share/netatmo/snapshots -type f -mtime +2 -exec rm {} \;
 }
 
 remove_old_files
