@@ -10,7 +10,7 @@ homeassistant:
   time_zone: Europe/Paris
   country: FR
   whitelist_external_dirs:
-    - /share/netatmo/snapshots
+    - /share/netatmo
 
 # Integration, users, history, etc.
 config:
