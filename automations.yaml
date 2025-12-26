@@ -253,3 +253,24 @@
     - service: homeassistant.update_entity
       target:
         entity_id: sensor.aircraft_info
+- id: periodic_camera_snapshot
+  alias: "Camera - Periodic snapshot"
+  trigger:
+    - platform: time_pattern
+      seconds: "/30"
+  actions:
+    - action: camera.snapshot
+      target:
+         entity_id: camera.sonette
+      data:
+        filename: "/share/netatmo/snapshots/sonette_{{ now().strftime('%Y%m%d-%H%M%S') }}.jpg"
+    - action: camera.snapshot
+      target:
+         entity_id: camera.mimi_outdoor_camera
+      data:
+        filename: "/share/netatmo/snapshots/backyard_{{ now().strftime('%Y%m%d-%H%M%S') }}.jpg"
+    - action: camera.snapshot
+      target:
+         entity_id: camera.mimi_camera
+      data:
+        filename: "/share/netatmo/snapshots/home_{{ now().strftime('%Y%m%d-%H%M%S') }}.jpg"
