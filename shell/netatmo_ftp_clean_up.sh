@@ -1,8 +1,8 @@
 #!/bin/bash
 
 folder="/share/netatmo/"
-# 20 Gb = 20,971,520 Kb
-max_size=20971520
+# 30 Gb = 31,457,280 Kb
+max_size=31457280
 
 function clean_up_empty_folders () {
     find $folder -depth -empty -delete
