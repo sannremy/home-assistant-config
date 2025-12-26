@@ -9,7 +9,7 @@ homeassistant:
   temperature_unit: C
   time_zone: Europe/Paris
   country: FR
-  allowlist_external_dirs:
+  whitelist_external_dirs:
     - /share/netatmo/snapshots
 
 # Integration, users, history, etc.
