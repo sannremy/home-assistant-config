@@ -261,9 +261,9 @@
   actions:
     - action: camera.snapshot
       target:
-         entity_id: camera.sonette
+         entity_id: camera.sonnette
       data:
-        filename: "/share/netatmo/snapshots/sonette_{{ now().strftime('%Y%m%d-%H%M%S') }}.jpg"
+        filename: "/share/netatmo/snapshots/sonnette_{{ now().strftime('%Y%m%d-%H%M%S') }}.jpg"
     - action: camera.snapshot
       target:
          entity_id: camera.mimi_outdoor_camera
