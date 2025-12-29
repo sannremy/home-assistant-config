@@ -22,9 +22,9 @@ function remove_old_files () {
     fi
 
     # Remove files older than 2 days in snapshots folder
-    find /share/netatmo/snapshots/sonnette -type f -mtime +2 -exec rm {} \;
-    find /share/netatmo/snapshots/backyard -type f -mtime +2 -exec rm {} \;
-    find /share/netatmo/snapshots/home -type f -mtime +2 -exec rm {} \;
+    find /share/netatmo/snapshots/sonnette -type f -mtime +1 -exec rm {} \;
+    find /share/netatmo/snapshots/backyard -type f -mtime +1 -exec rm {} \;
+    find /share/netatmo/snapshots/home -type f -mtime +1 -exec rm {} \;
 }
 
 remove_old_files
