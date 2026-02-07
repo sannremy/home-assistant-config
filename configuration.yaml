@@ -38,7 +38,14 @@ sun:
 # Frontend config (see ./ui-lovelace.yaml)
 frontend:
 lovelace:
-  mode: yaml
+  resource_mode: yaml
+  dashboards:
+    lovelace:
+      mode: yaml
+      filename: ui-lovelace.yaml
+      title: Overview
+      icon: mdi:view-dashboard
+      show_in_sidebar: true
 
 # System health report
 system_health:
